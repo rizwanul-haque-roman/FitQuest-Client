@@ -74,7 +74,7 @@ const Navbar = () => {
 
   return (
     <div className="absolute w-full z-50">
-      <div className=" w-11/12 mx-auto navbar">
+      <div className="container mx-auto navbar">
         <div className="navbar-start">
           <div onClick={handleNavDopdown} className="dropdown">
             <div
