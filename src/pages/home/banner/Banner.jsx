@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import bg from "../../../assets/gymDumbles.jpg";
-import gymGuy from "../../../assets/gymGuy.jpg";
+import gymGuy from "../../../assets/gymGuy.png";
 
 const Banner = () => {
   return (
@@ -8,13 +8,13 @@ const Banner = () => {
       className="h-screen bg-cover bg-no-repeat bg-center bg-fixed"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <div className="h-screen bg-[#000000e3] bg-cover bg-no-repeat bg-center">
+      <div className="h-screen bg-[#000000f3] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto flex justify-between items-end">
           <div className="w-1/2 h-screen flex flex-col justify-center">
             <h2 className="text-6xl font-bold">
               Your <span className="text-clr-main">Fitness</span>, Our Mission
             </h2>
-            <p className="mt-6 text-xl">
+            <p className="mt-6 text-xl leading-10">
               At FitQuest, we are dedicated to helping you achieve your health
               and fitness goals. Our expert trainers, personalized programs, and
               supportive community are here to guide and inspire you every step

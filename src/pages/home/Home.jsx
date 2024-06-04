@@ -1,3 +1,4 @@
+import About from "./about/About";
 import Banner from "./banner/Banner";
 import Features from "./features/Features";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Banner />
       <Features />
+      <About />
     </div>
   );
 };
