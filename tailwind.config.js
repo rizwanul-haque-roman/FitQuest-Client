@@ -5,6 +5,7 @@ export default {
   theme: {
     colors: {
       "clr-main": "#ed1533",
+      "clr-secondary": "#a00015",
     },
     extend: {
       fontFamily: {

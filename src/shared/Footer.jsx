@@ -48,7 +48,7 @@ const Footer = () => {
                 placeholder="example@domain.com"
                 className="input input-sm lg:input-md input-bordered join-item"
               />
-              <button className="btn btn-sm lg:btn-md bg-[#a92727] join-item border border-[#575d67]">
+              <button className="btn btn-sm lg:btn-md bg-clr-secondary join-item border border-[#575d67]">
                 Subscribe
               </button>
             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
       <footer className="footer footer-center font-medium">
         <aside>
           <p className="p-3">
-            Copyright © 2024 - All rights reserved by StudyBuddy
+            Copyright © 2024 - All rights reserved by FitQuest
           </p>
         </aside>
       </footer>

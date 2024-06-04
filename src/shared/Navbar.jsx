@@ -5,7 +5,8 @@ import pfp from "../assets/user.png";
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [navdropdown, setNavDropdown] = useState(false);
-  const user = true;
+  // const user = true;
+  const user = false;
 
   const handleDopdown = () => {
     setDropdown(!dropdown);
@@ -121,13 +122,13 @@ const Navbar = () => {
           {!user && (
             <div className="flex gap-3">
               <Link to={"/login"}>
-                <button className="btn btn-sm font-semibold border-none  ">
+                <button className="btn btn-sm bg-clr-secondary font-semibold border-none  ">
                   LogIn
                 </button>
               </Link>
               <p>Or</p>
               <Link to={"/register"}>
-                <button className="btn btn-sm font-semibold border-none  ">
+                <button className="btn btn-sm bg-clr-secondary font-semibold border-none  ">
                   Register
                 </button>
               </Link>
