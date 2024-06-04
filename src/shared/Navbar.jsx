@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import pfp from "../assets/user.png";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [navdropdown, setNavDropdown] = useState(false);
-  const user = false;
+  const user = true;
 
   const handleDopdown = () => {
     setDropdown(!dropdown);
@@ -27,7 +28,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/assignments"
+          to="/allTrainer"
           className={({ isActive }) =>
             isActive ? "underline text-clr-main" : ""
           }
@@ -38,7 +39,7 @@ const Navbar = () => {
       <>
         <li>
           <NavLink
-            to="/CreateAssignments"
+            to="/allClasses"
             className={({ isActive }) =>
               isActive ? "underline text-clr-main" : ""
             }
@@ -48,7 +49,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/pendingAssignments"
+            to="/dashboard"
             className={({ isActive }) =>
               isActive ? "underline text-clr-main" : ""
             }
@@ -58,7 +59,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/studyOwl"
+            to="/forum"
             className={({ isActive }) =>
               isActive ? "underline text-clr-main" : ""
             }
@@ -132,9 +133,6 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          <button className="btn btn-sm font-semibold border-none">
-            Log Out
-          </button>
           {user && (
             <div className="dropdown dropdown-end">
               <div
@@ -148,10 +146,33 @@ const Navbar = () => {
                 >
                   <img
                     alt="Profile Photo"
-                    src={user?.photoURL ? user?.photoURL : ""}
+                    src={user?.photoURL ? user?.photoURL : pfp}
                   />
                 </div>
               </div>
+              {dropdown && (
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#83838361] rounded-lg w-52"
+                >
+                  <li>
+                    <p className="justify-between">Name: {user?.displayName}</p>
+                  </li>
+                  <li>
+                    <p>Email: {user?.email}</p>
+                  </li>
+                  <Link to={"/updateProfile"}>
+                    <button className="w-full my-3 btn btn-sm font-semibold border-none">
+                      Update Profile
+                    </button>
+                  </Link>
+                  <li>
+                    <button className="btn btn-sm font-semibold border-none">
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
+              )}
             </div>
           )}
         </div>
