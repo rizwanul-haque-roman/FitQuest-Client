@@ -1,0 +1,38 @@
+[
+  {
+    "image": "https://i.ibb.co/9sNBwRC/jane-Smith.jpg",
+    "testimonial": "I've been using your fitness program for a month now, and I'm amazed at the results! I feel stronger, more energized, and healthier than ever before. Thank you!",
+    "customerName": "Alice Johnson",
+    "customerDesignation": "Fitness Enthusiast"
+  },
+  {
+    "image": "https://i.ibb.co/GcTyt0K/DavidLee.jpg",
+    "testimonial": "Your personal training sessions have truly transformed my life. I've lost weight, gained muscle, and improved my overall well-being. Highly recommended!",
+    "customerName": "Mark Smith",
+    "customerDesignation": "Athlete"
+  },
+  {
+    "image": "https://i.ibb.co/TqKbgzM/Emily-Johnson.jpg",
+    "testimonial": "I never thought working out could be this fun and effective! Your group fitness classes are motivating, challenging, and leave me feeling fantastic. Keep up the great work!",
+    "customerName": "Emily Brown",
+    "customerDesignation": "Fitness Enthusiast"
+  },
+  {
+    "image": "https://i.ibb.co/gM89KB0/Jason-Martinez.jpg",
+    "testimonial": "Thanks to your nutritional guidance and workout plans, I've achieved my fitness goals faster than I ever thought possible. I feel healthier and happier every day!",
+    "customerName": "David Wilson",
+    "customerDesignation": "Fitness Coach"
+  },
+  {
+    "image": "https://i.ibb.co/ryMfY2B/Alexandra-Garcia.jpg",
+    "testimonial": "Your online fitness program has been a game-changer for me. I appreciate the flexibility it offers, and the results speak for themselves. Highly recommended for anyone looking to get in shape!",
+    "customerName": "Sarah Martinez",
+    "customerDesignation": "Fitness Blogger"
+  },
+  {
+    "image": "https://i.ibb.co/sPKGSqy/Daniel-Clark.jpg",
+    "testimonial": "As a busy professional, finding time to exercise was always a challenge. Your virtual fitness classes have made it easy for me to stay active and fit, even with a hectic schedule. Thank you for making fitness accessible!",
+    "customerName": "Michael Johnson",
+    "customerDesignation": "Business Executive"
+  }
+]
