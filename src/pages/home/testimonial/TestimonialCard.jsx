@@ -5,7 +5,7 @@ const TestimonialCard = ({ testimonial }) => {
   const stars = Array(parseInt(testimonial.rating)).fill(0);
   return (
     <div className="mx-4">
-      <div className="card flex flex-col gap-6 card-side bg-base-100 justify-evenly items-center shadow-xl p-6 border border-clr-secondary h-[48vh]">
+      <div className="card flex flex-col gap-6 card-side bg-[#0c0f13] justify-evenly items-center shadow-xl p-6 border border-clr-secondary h-[48vh]">
         <div className="w-1/4">
           <img
             className="rounded-full border-2 border-clr-secondary"

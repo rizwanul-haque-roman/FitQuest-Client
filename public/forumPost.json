@@ -1,0 +1,308 @@
+[
+  {
+    "title": "Best Exercises for Core Strength",
+    "author": {
+      "username": "John Doe",
+      "profilePicture": "https://i.ibb.co/kG0RnwD/johnDoe.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-07T14:30:00Z",
+    "content": {
+      "text": "I've been focusing on improving my core strength and am looking for some effective exercises. What are your favorite core workouts?",
+      "media": "https://i.ibb.co/hX4XDFM/core-Strength.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["core strength", "exercises", "workout routines"],
+    "likes": 20,
+    "views": 150
+  },
+  {
+    "title": "Nutrition Tips for Muscle Gain",
+    "author": {
+      "username": "Emily Johnson",
+      "profilePicture": "https://i.ibb.co/TqKbgzM/Emily-Johnson.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-06T10:00:00Z",
+    "content": {
+      "text": "What are some essential nutrition tips for someone looking to gain muscle mass?",
+      "media": "https://i.ibb.co/51SBDbC/nutrition-Tips.png"
+    },
+    "category": "Nutrition",
+    "tags": ["nutrition", "muscle gain", "diet tips"],
+    "likes": 30,
+    "views": 200
+  },
+  {
+    "title": "Benefits of High-Intensity Interval Training (HIIT)",
+    "author": {
+      "username": "Jason Martinez",
+      "profilePicture": "https://i.ibb.co/gM89KB0/Jason-Martinez.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-05T16:45:00Z",
+    "content": {
+      "text": "Let's discuss the numerous benefits of HIIT workouts and how they can improve overall fitness levels.",
+      "media": "https://i.ibb.co/W2GDCKq/HIIT.png"
+    },
+    "category": "Workouts",
+    "tags": ["HIIT", "fitness", "cardio"],
+    "likes": 40,
+    "views": 300
+  },
+  {
+    "title": "Healthy Snack Ideas for Pre-Workout Fuel",
+    "author": {
+      "username": "John Doe",
+      "profilePicture": "https://i.ibb.co/kG0RnwD/johnDoe.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-04T12:15:00Z",
+    "content": {
+      "text": "Share your favorite healthy snack ideas to fuel up before a workout!",
+      "media": "https://i.ibb.co/fX6T9Vz/healthy-Snacks.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["snacks", "pre-workout", "energy"],
+    "likes": 25,
+    "views": 180
+  },
+  {
+    "title": "Importance of Proper Form in Weightlifting",
+    "author": {
+      "username": "Sophia Lewis",
+      "profilePicture": "sophialewis@fitquest.com",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-03T09:30:00Z",
+    "content": {
+      "text": "Discuss why maintaining proper form is crucial for injury prevention and maximizing gains in weightlifting.",
+      "media": "https://i.ibb.co/b7VShg5/proper-Form.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["weightlifting", "form", "strength training"],
+    "likes": 35,
+    "views": 250
+  },
+  {
+    "title": "Eating for Endurance: Marathon Training Nutrition",
+    "author": {
+      "username": "Daniel Clark",
+      "profilePicture": "https://i.ibb.co/sPKGSqy/Daniel-Clark.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-02T15:00:00Z",
+    "content": {
+      "text": "Share nutrition tips and meal plans tailored for marathon training and long-distance running.",
+      "media": "https://i.ibb.co/FWwZ4vw/breakfast.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["endurance", "marathon", "running"],
+    "likes": 28,
+    "views": 190
+  },
+  {
+    "title": "Benefits of Yoga for Mental Health",
+    "author": {
+      "username": "Olivia Brown",
+      "profilePicture": "https://i.ibb.co/TqKbgzM/Emily-Johnson.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-06-01T11:45:00Z",
+    "content": {
+      "text": "Discuss how practicing yoga can have positive effects on mental well-being and stress reduction.",
+      "media": "https://i.ibb.co/bJtq5P6/mental-Health.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["yoga", "mental health", "stress relief"],
+    "likes": 50,
+    "views": 350
+  },
+  {
+    "title": "Healthy Meal Prep Tips for Busy Professionals",
+    "author": {
+      "username": "Alexander Martinez",
+      "profilePicture": "https://i.ibb.co/fN0Rf0s/Michael-Brown.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-31T14:20:00Z",
+    "content": {
+      "text": "Share your favorite meal prep strategies and recipes for staying healthy while managing a busy schedule.",
+      "media": "https://i.ibb.co/fX6T9Vz/healthy-Snacks.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["meal prep", "healthy eating", "busy lifestyle"],
+    "likes": 42,
+    "views": 280
+  },
+  {
+    "title": "Effective Bodyweight Workouts for Home",
+    "author": {
+      "username": "Ryan Thompson",
+      "profilePicture": "https://i.ibb.co/YjHs8vX/Ryan-Thompson.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-30T08:00:00Z",
+    "content": {
+      "text": "Let's compile a list of bodyweight exercises and routines that can be done at home with minimal equipment.",
+      "media": "https://i.ibb.co/ZTB0SSP/body-Weight.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["bodyweight", "home workouts", "fitness"],
+    "likes": 38,
+    "views": 270
+  },
+  {
+    "title": "Healthy Breakfast Ideas to Start Your Day Right",
+    "author": {
+      "username": "Alexandra Garcia",
+      "profilePicture": "https://i.ibb.co/ryMfY2B/Alexandra-Garcia.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-29T07:30:00Z",
+    "content": {
+      "text": "Share your favorite breakfast recipes and ideas for a nutritious and energizing start to the day!",
+      "media": "https://i.ibb.co/FWwZ4vw/breakfast.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["breakfast", "healthy eating", "morning routine"],
+    "likes": 36,
+    "views": 260
+  },
+  {
+    "title": "Tips for Improving Flexibility with Stretching",
+    "author": {
+      "username": "Michae Turner",
+      "profilePicture": "https://i.ibb.co/BcFdqkC/Michae-Turner.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-28T16:00:00Z",
+    "content": {
+      "text": "Discuss effective stretching techniques and routines to enhance flexibility and prevent injury.",
+      "media": "https://i.ibb.co/Sv0fDJK/flexibility.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["flexibility", "stretching", "mobility"],
+    "likes": 32,
+    "views": 220
+  },
+  {
+    "title": "Plant-Based Diet Benefits for Athletes",
+    "author": {
+      "username": "Christopher Adams",
+      "profilePicture": "https://i.ibb.co/9vrjCpC/Christopher-Adams.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-27T12:45:00Z",
+    "content": {
+      "text": "Explore the advantages of a plant-based diet for athletes, including improved performance and recovery.",
+      "media": "https://i.ibb.co/FWwZ4vw/breakfast.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["plant-based", "diet", "athletes"],
+    "likes": 45,
+    "views": 320
+  },
+  {
+    "title": "Stress-Relief Techniques for Fitness Enthusiasts",
+    "author": {
+      "username": "Jason Martinez",
+      "profilePicture": "https://i.ibb.co/gM89KB0/Jason-Martinez.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-26T11:00:00Z",
+    "content": {
+      "text": "Share methods and practices to manage stress and improve mental well-being alongside fitness routines.",
+      "media": "https://i.ibb.co/ZNxHSKh/stress-Relief.jpg"
+    },
+    "category": "Mental Health",
+    "tags": ["stress relief", "mental health", "mindfulness"],
+    "likes": 48,
+    "views": 330
+  },
+  {
+    "title": "Benefits of Outdoor Workouts",
+    "author": {
+      "username": "David Lee",
+      "profilePicture": "https://i.ibb.co/GcTyt0K/DavidLee.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-25T14:00:00Z",
+    "content": {
+      "text": "Discuss the advantages of exercising outdoors and share your favorite outdoor workout locations and activities.",
+      "media": "https://i.ibb.co/QjW0xDv/outdoor-Workouts.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["outdoor", "fitness", "nature"],
+    "likes": 55,
+    "views": 370
+  },
+  {
+    "title": "Healthy Snack Ideas for Post-Workout Recovery",
+    "author": {
+      "username": "Sarah Wilson",
+      "profilePicture": "https://i.ibb.co/Vjc5wDC/Sarah-Wilson.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-24T15:30:00Z",
+    "content": {
+      "text": "Share nutritious snack options to aid in muscle recovery and replenish energy levels after workouts.",
+      "media": "https://i.ibb.co/fX6T9Vz/healthy-Snacks.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["snacks", "post-workout", "recovery"],
+    "likes": 34,
+    "views": 240
+  },
+  {
+    "title": "Tips for Improving Running Form",
+    "author": {
+      "username": "Michael Brown",
+      "profilePicture": "https://i.ibb.co/fN0Rf0s/Michael-Brown.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-23T09:00:00Z",
+    "content": {
+      "text": "Discuss techniques and exercises to enhance running form and efficiency for runners of all levels.",
+      "media": "https://i.ibb.co/VLT4h1X/running-Form.jpg"
+    },
+    "category": "Workouts",
+    "tags": ["running", "form", "technique"],
+    "likes": 39,
+    "views": 270
+  },
+  {
+    "title": "Guide to Building a Home Gym on a Budget",
+    "author": {
+      "username": "Emily Johnson",
+      "profilePicture": "https://i.ibb.co/TqKbgzM/Emily-Johnson.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-22T10:45:00Z",
+    "content": {
+      "text": "Provide tips and recommendations for creating a cost-effective home gym setup for effective workouts.",
+      "media": "https://i.ibb.co/sFQWZSf/homeGym.jpg"
+    },
+    "category": "Fitness Equipment",
+    "tags": ["home gym", "budget", "fitness equipment"],
+    "likes": 47,
+    "views": 310
+  },
+  {
+    "title": "Importance of Hydration for Exercise Performance",
+    "author": {
+      "username": "Jane Smith",
+      "profilePicture": "https://i.ibb.co/9sNBwRC/jane-Smith.jpg",
+      "role": "Trainer"
+    },
+    "dateTime": "2024-05-21T12:00:00Z",
+    "content": {
+      "text": "Discuss the role of proper hydration in optimizing exercise performance and preventing dehydration.",
+      "media": "https://i.ibb.co/kyxJtqc/hydration.jpg"
+    },
+    "category": "Nutrition",
+    "tags": ["hydration", "exercise", "performance"],
+    "likes": 41,
+    "views": 280
+  }
+]
