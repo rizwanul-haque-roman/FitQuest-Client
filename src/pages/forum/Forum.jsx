@@ -9,7 +9,7 @@ const Forum = () => {
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { isPending, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["totalPosts"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/totalPosts`);

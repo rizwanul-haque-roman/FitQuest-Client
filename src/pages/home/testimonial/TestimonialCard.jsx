@@ -15,12 +15,12 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
         <div>
           <p className="text-lg">{testimonial.testimonial}</p>
-          <div className="text-xl font-medium">
+          <div className="text-xl font-medium mt-3">
             <h3 className="text-xl font-bold text-clr-secondary">
               {testimonial.customerName}
             </h3>
             <p className="text-base">{testimonial.customerDesignation}</p>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 mt-3">
               {stars.map((_, idx) => (
                 <FaStar key={idx} className="text-[#e79d2e]" />
               ))}
