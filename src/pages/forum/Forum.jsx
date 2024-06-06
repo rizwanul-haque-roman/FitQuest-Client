@@ -74,8 +74,15 @@ const Forum = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-6">
-          {!isLoading &&
-            posts.map((post) => <PostCard key={post._id} post={post} />)}
+          {isLoading ? (
+            <div className="col-span-3 justify-center items-center">
+              <div className="flex justify-center items-center">
+                <span className="loading loading-dots loading-lg"></span>
+              </div>
+            </div>
+          ) : (
+            posts.map((post) => <PostCard key={post._id} post={post} />)
+          )}
         </div>
         <div className="my-12 text-center">
           <button
