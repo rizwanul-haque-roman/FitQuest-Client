@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import ClassCard from "../../../shared/ClassCard";
 
 const Featured = () => {
   const axiosPublic = useAxiosPublic();
@@ -31,34 +32,7 @@ const Featured = () => {
       ) : (
         <div className=" grid grid-cols-3 gap-6">
           {data.map((item) => (
-            <div
-              key={item._id}
-              className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out flex items-center gap-4"
-            >
-              <div className="w-1/2">
-                <img src={item.image} alt="" />
-              </div>
-              <div className=" space-y-2">
-                <h3 className="text-2xl font-bold text-clr-main">
-                  {item.className}
-                </h3>
-                <p>{item.description}</p>
-                <p>
-                  <span className="font-bold">Total Bookings: </span>
-                  {item.totalBookings}
-                </p>
-                <p className="font-bold">Trainers who take this class:</p>
-                <div className="flex gap-5">
-                  {item.trainers.map((trainer, idx) => (
-                    <div key={idx} className="avatar">
-                      <div className="w-10 rounded-full ring ring-clr-secondary ring-offset-base-100">
-                        <img src={trainer.profileImage} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ClassCard key={item._id} classData={item} />
           ))}
         </div>
       )}
