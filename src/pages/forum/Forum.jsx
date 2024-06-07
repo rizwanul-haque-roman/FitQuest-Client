@@ -84,7 +84,7 @@ const Forum = () => {
             posts.map((post) => <PostCard key={post._id} post={post} />)
           )}
         </div>
-        <div className="my-12 text-center">
+        <div className="my-24 text-center">
           <button
             onClick={haandlePrev}
             className={`btn ${currentPage == 1 && "btn-disabled"}`}

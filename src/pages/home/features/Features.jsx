@@ -7,7 +7,7 @@ import f6 from "../../../assets/yoga.png";
 
 const Features = () => {
   return (
-    <div className="container mx-auto my-12">
+    <div className="container mx-auto my-24">
       <div>
         <h1 className="text-5xl font-bold text-clr-main">Features</h1>
         <p className="mt-4">

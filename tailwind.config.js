@@ -4,7 +4,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      "clr-main": "#ed1533",
+      "clr-main": "#a00015",
       "clr-secondary": "#a00015",
     },
     extend: {

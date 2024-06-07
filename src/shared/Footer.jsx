@@ -36,24 +36,6 @@ const Footer = () => {
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </nav>
-        <form>
-          <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
-            <div className="join">
-              <input
-                type="text"
-                placeholder="example@domain.com"
-                className="input input-sm lg:input-md input-bordered join-item"
-              />
-              <button className="btn btn-sm lg:btn-md bg-clr-secondary join-item border border-[#575d67]">
-                Subscribe
-              </button>
-            </div>
-          </fieldset>
-        </form>
       </footer>
       <hr className="border-t border-[#13131374] my-2" />
       <footer className="footer footer-center font-medium">

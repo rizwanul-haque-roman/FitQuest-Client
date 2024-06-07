@@ -3,6 +3,7 @@ import Banner from "./banner/Banner";
 import Featured from "./featured/Featured";
 import Features from "./features/Features";
 import LatestPosts from "./latestPost/LatestPosts";
+import Newsletter from "./newsletter/Newsletter";
 import Testimonial from "./testimonial/Testimonial";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Featured />
       <Testimonial />
       <LatestPosts />
+      <Newsletter />
     </div>
   );
 };
