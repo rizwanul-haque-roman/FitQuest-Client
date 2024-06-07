@@ -55,7 +55,7 @@ const TeamCard = ({ trainer }) => {
           <p className="text-xl font-semibold text-clr-main">
             Classes by this trainer
           </p>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2">
             {trainer?.classes.map((cls, idx) => (
               <div key={idx}>
                 <p className="badge badge-primary">{cls}</p>
@@ -64,7 +64,9 @@ const TeamCard = ({ trainer }) => {
           </div>
         </div>
         <Link>
-          <button className="btn btn-sm bg-clr-main">Know more</button>
+          <button className="btn btn-sm bg-clr-main hover:bg-[#6c0d0d]">
+            Know more
+          </button>
         </Link>
       </div>
     </div>
