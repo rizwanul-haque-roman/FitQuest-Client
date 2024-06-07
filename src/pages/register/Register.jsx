@@ -122,15 +122,15 @@ const Register = () => {
             <input type="checkbox" name="check" required />
             <h3>Accept terms & conditions</h3>
           </div>
-          <button className="btn btn-sm bg-clr-secondary hover:bg-clr-main rounded-full border-0 text-lg text-white">
+          <button className="btn btn-sm bg-clr-main hover:bg-clr-main rounded-full border-0 text-lg text-white">
             Register
           </button>
           <p className="text-center text-xl font-bold">Or</p>
-          <Link className="btn btn-sm border border-clr-secondary rounded-full text-lg ">
+          <Link className="btn btn-sm border border-clr-main rounded-full text-lg ">
             <FcGoogle />
             Log In with Google
           </Link>
-          <Link className="btn btn-sm border border-clr-secondary rounded-full text-lg ">
+          <Link className="btn btn-sm border border-clr-main rounded-full text-lg ">
             <FaFacebookF />
             Log In with Facebook
           </Link>

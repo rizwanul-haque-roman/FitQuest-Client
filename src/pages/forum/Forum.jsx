@@ -57,7 +57,7 @@ const Forum = () => {
   return (
     <div className="min-h-screen pt-28">
       <div className="w-11/12 lg:container mx-auto ">
-        <div className="border border-clr-secondary overflow-hidden lg:h-[40vh] rounded-2xl">
+        <div className="border border-clr-main overflow-hidden lg:h-[40vh] rounded-2xl">
           <img className="w-full" src={banner} alt="" />
         </div>
         <div className="my-6">
@@ -95,7 +95,7 @@ const Forum = () => {
             <button
               onClick={() => setCurrentPage(page + 1)}
               className={`btn ml-2 my-2 ${
-                currentPage == page + 1 && "bg-clr-secondary"
+                currentPage == page + 1 && "bg-clr-main"
               } `}
               key={page}
             >

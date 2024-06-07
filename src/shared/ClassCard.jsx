@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const ClassCard = ({ classData }) => {
   return (
-    <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out flex items-center gap-4">
+    <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out flex items-center gap-4">
       <div className="w-1/2">
         <img src={classData.image} alt="" />
       </div>
@@ -19,7 +19,7 @@ const ClassCard = ({ classData }) => {
         <div className="flex gap-5">
           {classData.trainers.map((trainer, idx) => (
             <div key={idx} className="avatar">
-              <div className="w-10 rounded-full ring ring-clr-secondary ring-offset-base-100">
+              <div className="w-10 rounded-full ring ring-clr-main ring-offset-base-100">
                 <img src={trainer.profileImage} />
               </div>
             </div>

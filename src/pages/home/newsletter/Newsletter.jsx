@@ -40,7 +40,9 @@ const Newsletter = () => {
           </p>
         </div>
         <div className="w-1/2">
-          <h3 className="text-2xl text-clr-main mb-3">Get Started for Free</h3>
+          <h3 className="text-2xl text-clr-main font-semibold mb-3">
+            Get Started for Free
+          </h3>
           <form onSubmit={handleSubmit} className="grid gap-6">
             <input
               type="text"
@@ -54,7 +56,7 @@ const Newsletter = () => {
               placeholder="Enter Your Email"
               className="input input-bordered w-full"
             />
-            <button className="btn w-full bg-clr-secondary">Subscribe</button>
+            <button className="btn w-full bg-clr-main">Subscribe</button>
           </form>
         </div>
       </div>

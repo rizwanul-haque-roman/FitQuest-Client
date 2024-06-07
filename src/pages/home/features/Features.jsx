@@ -17,7 +17,7 @@ const Features = () => {
         </p>
         <div className="mt-12">
           <div className="grid grid-cols-3 gap-6">
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f1} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">
                 Body Building
@@ -28,7 +28,7 @@ const Features = () => {
                 achieve your fitness goals.
               </p>
             </div>
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f2} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">Masculation</h3>
               <p>
@@ -36,7 +36,7 @@ const Features = () => {
                 programs! We offer expert guidance, customized workout plans.
               </p>
             </div>
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f3} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">
                 Tredmil Running
@@ -47,7 +47,7 @@ const Features = () => {
                 gym space. Get up and running.
               </p>
             </div>
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f4} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">Deadlifting</h3>
               <p>
@@ -56,7 +56,7 @@ const Features = () => {
                 with personalized deadlift instruction.
               </p>
             </div>
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f5} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">
                 Weighting Lifting
@@ -67,7 +67,7 @@ const Features = () => {
                 fitness goals faster. Start today.
               </p>
             </div>
-            <div className="border border-clr-secondary rounded-lg p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
+            <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f6} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">Classic Yoga</h3>
               <p>

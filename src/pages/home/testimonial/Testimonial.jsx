@@ -17,7 +17,7 @@ const Testimonial = () => {
     },
   });
 
-  console.log("Testimonials:", data);
+  // console.log("Testimonials:", data);
 
   const settings_lg = {
     dots: true,

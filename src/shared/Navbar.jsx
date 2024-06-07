@@ -29,12 +29,12 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/allTrainer"
+          to="/allTrainers"
           className={({ isActive }) =>
             isActive ? "underline text-clr-main" : ""
           }
         >
-          All Trainer
+          All Trainers
         </NavLink>
       </li>
       <>
@@ -122,13 +122,13 @@ const Navbar = () => {
           {!user && (
             <div className="flex gap-3">
               <Link to={"/login"}>
-                <button className="btn btn-sm bg-clr-secondary font-semibold border-none  ">
+                <button className="btn btn-sm bg-clr-main font-semibold border-none  ">
                   LogIn
                 </button>
               </Link>
               <p>Or</p>
               <Link to={"/register"}>
-                <button className="btn btn-sm bg-clr-secondary font-semibold border-none  ">
+                <button className="btn btn-sm bg-clr-main font-semibold border-none  ">
                   Register
                 </button>
               </Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
               {dropdown && (
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#83838361] rounded-lg w-52"
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#83838361] rounded-2xl w-52"
                 >
                   <li>
                     <p className="justify-between">Name: {user?.displayName}</p>

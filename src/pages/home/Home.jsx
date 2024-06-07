@@ -4,6 +4,7 @@ import Featured from "./featured/Featured";
 import Features from "./features/Features";
 import LatestPosts from "./latestPost/LatestPosts";
 import Newsletter from "./newsletter/Newsletter";
+import Team from "./team/Team";
 import Testimonial from "./testimonial/Testimonial";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Featured />
       <Testimonial />
       <LatestPosts />
+      <Team />
       <Newsletter />
     </div>
   );

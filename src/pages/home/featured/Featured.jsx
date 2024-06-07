@@ -8,7 +8,7 @@ const Featured = () => {
   const { isPending, data } = useQuery({
     queryKey: ["featuredClasses"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/featured");
+      const res = await axiosPublic.get("/featuredClasses");
       return res.data;
     },
   });

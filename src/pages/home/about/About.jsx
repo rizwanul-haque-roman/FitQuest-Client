@@ -24,7 +24,7 @@ const About = () => {
               and motivate you on your fitness journey.
             </p>
             <Link to={"/allClasses"}>
-              <button className="btn w-1/4 mt-6 bg-clr-secondary hover:bg-clr-main">
+              <button className="btn w-1/4 mt-6 bg-clr-main hover:bg-clr-main">
                 Join Us
               </button>
             </Link>
