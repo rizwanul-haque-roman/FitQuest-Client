@@ -27,7 +27,9 @@ const PostCard = ({ post }) => {
             </div>
           </div>
           <div>
-            <button className="btn btn-sm bg-clr-main">View full post</button>
+            <button className="btn btn-sm hover:bg-clr-main">
+              View full post
+            </button>
           </div>
         </div>
       </div>

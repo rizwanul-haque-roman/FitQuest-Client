@@ -63,7 +63,7 @@ const TeamCard = ({ trainer }) => {
             ))}
           </div>
         </div>
-        <Link>
+        <Link to={`/trainer/${trainer._id}`}>
           <button className="btn btn-sm bg-clr-main hover:bg-[#6c0d0d]">
             Know more
           </button>
