@@ -42,7 +42,7 @@ const Team = () => {
               )}
             </div>
             <div className="mt-12">
-              <Link>
+              <Link to={"/allTrainers"}>
                 <button className="btn bg-clr-main">See more</button>
               </Link>
             </div>
