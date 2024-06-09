@@ -7,6 +7,7 @@ import Forum from "./pages/forum/Forum";
 import AllTrainers from "./pages/allTrainers/AllTrainers";
 import TrainerDetails from "./pages/trainerDetails/TrainerDetails";
 import TrainerBooking from "./pages/trainerBooking/TrainerBooking";
+import Payment from "./pages/payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/booking/:id",
         element: <TrainerBooking />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },

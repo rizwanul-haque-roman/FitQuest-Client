@@ -145,7 +145,6 @@ const TrainerDetails = () => {
                   <div className="flex gap-6 justify-between">
                     {trainer?.slotsAvailable.map((slot, idx) => (
                       <div key={idx}>
-                        {/* <Link to={`/booking/${trainer._id}?idx=${idx}`}> */}
                         <button
                           onClick={() => handleSlot(idx)}
                           className="btn btn-lg hover:bg-clr-main"

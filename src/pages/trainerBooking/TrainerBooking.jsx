@@ -22,6 +22,14 @@ const TrainerBooking = () => {
     },
   });
 
+  const { isLoading: planLoading, data: plans } = useQuery({
+    queryKey: ["plans"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/pricing");
+      return res.data;
+    },
+  });
+
   return (
     <div className="min-h-screen pt-20">
       {isLoading ? (
@@ -82,7 +90,12 @@ const TrainerBooking = () => {
               </div>
             </div>
           </div>
-          <PricingCard />
+          <div className="flex justify-center items-center">
+            {!planLoading &&
+              plans.map((plan, idx) => (
+                <PricingCard key={idx} plan={plan} idx={idx} trainerId={id} />
+              ))}
+          </div>
         </div>
       )}
     </div>
