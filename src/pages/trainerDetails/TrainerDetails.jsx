@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { FaFacebookF } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
+import ctaBanner from "../../assets/callToAction.png";
 
 const TrainerDetails = () => {
   const { id } = useParams();
@@ -29,12 +30,27 @@ const TrainerDetails = () => {
         </div>
       ) : (
         <div className="w-11/12 lg:container mx-auto ">
+          <div
+            className="bg-cover bg-no-repeat bg-center h-[50vh] rounded-2xl flex justify-end items-center"
+            style={{ backgroundImage: `url(${ctaBanner})` }}
+          >
+            <div className="">
+              <h2 className="text-5xl font-bold mb-3">Be A Trainer</h2>
+              <p className="text-xl w-3/4 mb-3">
+                If you have the skills and passion to train others, join us and
+                become a part of our team.
+              </p>
+              <Link>
+                <button className="btn">Become a Trainer</button>
+              </Link>
+            </div>
+          </div>
           <div className="my-6">
             <h1 className="text-5xl font-bold text-clr-main">
               Trainer details
             </h1>
           </div>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 my-12">
             <div>
               <h1 className="text-3xl font-bold underline">Trainer info</h1>
               <div>
