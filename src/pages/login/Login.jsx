@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { HiEye } from "react-icons/hi";
 import { HiEyeOff } from "react-icons/hi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../auth/AuthProvider";
+import Swal from "sweetalert2";
+import { FaFacebookF } from "react-icons/fa6";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
   const [viewPass, setVewPass] = useState(true);
+  const { login, googleLogin, facebookLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,6 +21,51 @@ const Login = () => {
     const pass = form.pass.value;
 
     console.log({ email, pass });
+    login(email, pass)
+      .then((result) => {
+        console.log(result);
+        Swal.fire("Login Successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => Swal.fire(error.message));
+  };
+
+  const google = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photoURL: result.user?.photoURL,
+          role: "member",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+        navigate("/");
+        Swal.fire("Login Successful");
+      })
+      .catch((error) => Swal.fire(error.message));
+  };
+
+  const facebook = () => {
+    facebookLogin()
+      .then((result) => {
+        console.log(result);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photoURL: result.user?.photoURL,
+          role: "member",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+        navigate("/");
+        Swal.fire("Login Successful");
+      })
+      .catch((error) => Swal.fire(error.message));
   };
 
   return (
@@ -81,9 +134,19 @@ const Login = () => {
             Log In
           </button>
           <p className="text-center text-xl font-bold">Or</p>
-          <Link className="btn btn-sm border border-clr-main rounded-full text-lg ">
+          <Link
+            onClick={google}
+            className="btn btn-sm border border-clr-main rounded-full text-lg "
+          >
             <FcGoogle />
             Log In with Google
+          </Link>
+          <Link
+            onClick={facebook}
+            className="btn btn-sm border border-clr-main rounded-full text-lg "
+          >
+            <FaFacebookF />
+            Log In with Facebook
           </Link>
 
           <p className="text-center font-medium">

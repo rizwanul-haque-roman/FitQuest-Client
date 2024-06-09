@@ -1,21 +1,93 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { HiEye } from "react-icons/hi";
 import { HiEyeOff } from "react-icons/hi";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaFacebookF } from "react-icons/fa6";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { AuthContext } from "../../auth/AuthProvider";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 const Register = () => {
   const [viewPass, setVewPass] = useState(true);
+  const axiosPublic = useAxiosPublic();
+  const { register, googleLogin, facebookLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
-    const url = form.name.url;
+    const url = form.url.value;
     const email = form.email.value;
     const pass = form.pass.value;
 
     console.log({ name, url, email, pass });
+    register(email, pass, name, url)
+      .then((result) => {
+        console.log(url);
+        const userInfo = {
+          email: email,
+          name: name,
+          photoURL: url,
+          role: "member",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+
+        navigate("/");
+        Swal.fire("Registration Successful");
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: url,
+        })
+          .then(() => {})
+          .catch((error) => {
+            console.error(error);
+          });
+      })
+      .catch((error) => Swal.fire(error.message));
+  };
+
+  const google = () => {
+    googleLogin()
+      .then((result) => {
+        // console.log(result);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photoURL: result.user?.photoURL,
+          role: "member",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+        navigate("/");
+        Swal.fire("Login Successful");
+      })
+      .catch((error) => Swal.fire(error.message));
+  };
+
+  const facebook = () => {
+    facebookLogin()
+      .then((result) => {
+        // console.log(result);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photoURL: result.user?.photoURL,
+          role: "member",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+        navigate("/");
+        Swal.fire("Login Successful");
+      })
+      .catch((error) => Swal.fire(error.message));
   };
 
   return (
@@ -67,9 +139,9 @@ const Register = () => {
               </svg>
               <input
                 className="outline-none bg-transparent"
-                type="url"
+                type="text"
                 name="url"
-                placeholder="Your Name"
+                placeholder="Your photoURL"
                 required
               />
             </label>
@@ -126,11 +198,17 @@ const Register = () => {
             Register
           </button>
           <p className="text-center text-xl font-bold">Or</p>
-          <Link className="btn btn-sm border border-clr-main rounded-full text-lg ">
+          <Link
+            onClick={google}
+            className="btn btn-sm border border-clr-main rounded-full text-lg "
+          >
             <FcGoogle />
             Log In with Google
           </Link>
-          <Link className="btn btn-sm border border-clr-main rounded-full text-lg ">
+          <Link
+            onClick={facebook}
+            className="btn btn-sm border border-clr-main rounded-full text-lg "
+          >
             <FaFacebookF />
             Log In with Facebook
           </Link>

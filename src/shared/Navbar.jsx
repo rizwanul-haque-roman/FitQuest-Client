@@ -1,12 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import pfp from "../assets/user.png";
+import { AuthContext } from "../auth/AuthProvider";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [navdropdown, setNavDropdown] = useState(false);
-  // const user = true;
-  const user = false;
+  const { user, logOut } = useContext(AuthContext);
+  //https://fitquest-bd.firebaseapp.com/__/auth/handler
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   const handleDopdown = () => {
     setDropdown(!dropdown);
@@ -168,7 +175,10 @@ const Navbar = () => {
                     </button>
                   </Link>
                   <li>
-                    <button className="btn btn-sm font-semibold border-none">
+                    <button
+                      onClick={handleLogOut}
+                      className="btn btn-sm font-semibold border-none"
+                    >
                       Log Out
                     </button>
                   </li>
