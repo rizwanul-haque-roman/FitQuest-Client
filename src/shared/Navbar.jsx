@@ -7,7 +7,6 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [navdropdown, setNavDropdown] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  //https://fitquest-bd.firebaseapp.com/__/auth/handler
 
   const handleLogOut = () => {
     logOut()
@@ -56,14 +55,16 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? "underline text-clr-main" : ""
-            }
-          >
-            Dashboard
-          </NavLink>
+          {user && (
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? "underline text-clr-main" : ""
+              }
+            >
+              Dashboard
+            </NavLink>
+          )}
         </li>
         <li>
           <NavLink

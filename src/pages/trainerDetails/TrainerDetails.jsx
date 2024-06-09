@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { FaFacebookF } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
@@ -9,7 +9,7 @@ import ctaBanner from "../../assets/callToAction.png";
 const TrainerDetails = () => {
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
-  //   console.log(id);
+  const navigate = useNavigate();
 
   const { isLoading, data: trainer } = useQuery({
     queryKey: ["trainer"],
@@ -19,7 +19,11 @@ const TrainerDetails = () => {
     },
   });
 
-  //   !isLoading && console.log(trainer);
+  const handleSlot = (data) => {
+    localStorage.setItem("slot", data);
+    navigate(`/booking/${trainer._id}`);
+  };
+
   return (
     <div className="min-h-screen pt-20">
       {isLoading ? (
@@ -34,8 +38,8 @@ const TrainerDetails = () => {
             className="bg-cover bg-no-repeat bg-center h-[50vh] rounded-2xl flex justify-end items-center"
             style={{ backgroundImage: `url(${ctaBanner})` }}
           >
-            <div className="">
-              <h2 className="text-5xl font-bold mb-3">Be A Trainer</h2>
+            <div>
+              <h2 className="text-5xl font-bold mb-3">Become A Trainer</h2>
               <p className="text-xl w-3/4 mb-3">
                 If you have the skills and passion to train others, join us and
                 become a part of our team.
@@ -86,46 +90,28 @@ const TrainerDetails = () => {
                     Years of experience
                   </p>
                   <p>{trainer?.bio}</p>
-                  <div className=" flex gap-6">
-                    <div>
-                      <p className="text-xl font-semibold text-clr-main underline">
-                        Classes
-                      </p>
-                      <div>
-                        {trainer?.classes.map((cls, idx) => (
-                          <div key={idx}>
-                            <p className="badge badge-primary">{cls}</p>
-                          </div>
-                        ))}
-                      </div>
+                  <div>
+                    <p className="text-xl font-semibold text-clr-main underline">
+                      Skills
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {trainer?.skills.map((skill, idx) => (
+                        <div key={idx}>
+                          <p className="badge badge-primary">{skill}</p>
+                        </div>
+                      ))}
                     </div>
-                    <div>
-                      <p className="text-xl font-semibold text-clr-main underline">
-                        Skills
-                      </p>
-                      <div>
-                        {trainer?.skills.map((skill, idx) => (
-                          <div key={idx}>
-                            <p className="">
-                              <li>{skill}</li>
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-xl font-semibold text-clr-main underline">
-                        Experties
-                      </p>
-                      <div>
-                        {trainer?.areasOfExpertise.map((exprts, idx) => (
-                          <div key={idx}>
-                            <p className="">
-                              <li>{exprts}</li>
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+                  </div>
+                  <div>
+                    <p className="text-xl font-semibold text-clr-main underline">
+                      Experties
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {trainer?.areasOfExpertise.map((exprts, idx) => (
+                        <div key={idx}>
+                          <p className="badge badge-primary">{exprts}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -159,11 +145,25 @@ const TrainerDetails = () => {
                   <div className="flex gap-6 justify-between">
                     {trainer?.slotsAvailable.map((slot, idx) => (
                       <div key={idx}>
-                        <Link>
-                          <button className="btn btn-lg hover:bg-clr-main">
-                            {slot.day} <br /> {slot.time}
-                          </button>
-                        </Link>
+                        {/* <Link to={`/booking/${trainer._id}?idx=${idx}`}> */}
+                        <button
+                          onClick={() => handleSlot(idx)}
+                          className="btn btn-lg hover:bg-clr-main"
+                        >
+                          {slot.day} <br /> {slot.time}
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xl font-semibold text-clr-main underline">
+                    Classes
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {trainer?.classes.map((cls, idx) => (
+                      <div key={idx}>
+                        <p className="badge badge-primary">{cls}</p>
                       </div>
                     ))}
                   </div>
