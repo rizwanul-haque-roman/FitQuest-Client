@@ -44,7 +44,7 @@ const TrainerDetails = () => {
                 If you have the skills and passion to train others, join us and
                 become a part of our team.
               </p>
-              <Link>
+              <Link to={"/beATrainer"}>
                 <button className="btn">Become a Trainer</button>
               </Link>
             </div>

@@ -8,6 +8,7 @@ import AllTrainers from "./pages/allTrainers/AllTrainers";
 import TrainerDetails from "./pages/trainerDetails/TrainerDetails";
 import TrainerBooking from "./pages/trainerBooking/TrainerBooking";
 import Payment from "./pages/payment/Payment";
+import BeATrainer from "./pages/beATrainer/BeATrainer";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <Payment />,
+      },
+      {
+        path: "/beATrainer",
+        element: <BeATrainer />,
       },
     ],
   },
