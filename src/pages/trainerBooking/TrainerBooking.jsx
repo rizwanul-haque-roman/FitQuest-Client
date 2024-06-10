@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const TrainerBooking = () => {
   const [selected, setSelected] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
 
@@ -29,6 +30,10 @@ const TrainerBooking = () => {
       return res.data;
     },
   });
+
+  const handleSelectPlan = (planId) => {
+    setSelectedPlan(planId);
+  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -72,7 +77,7 @@ const TrainerBooking = () => {
               </div>
               <div>
                 <p className="text-xl font-semibold text-clr-main underline my-3">
-                  Selected slots
+                  Selected slot
                 </p>
                 <div className="flex gap-6">
                   {trainer?.slotsAvailable.map((slot, idx) => (
@@ -93,7 +98,13 @@ const TrainerBooking = () => {
           <div className="flex justify-center items-center">
             {!planLoading &&
               plans.map((plan, idx) => (
-                <PricingCard key={idx} plan={plan} idx={idx} trainerId={id} />
+                <PricingCard
+                  key={idx}
+                  plan={plan}
+                  trainerId={id}
+                  selectedPlan={selectedPlan}
+                  onSelectPlan={handleSelectPlan}
+                />
               ))}
           </div>
         </div>

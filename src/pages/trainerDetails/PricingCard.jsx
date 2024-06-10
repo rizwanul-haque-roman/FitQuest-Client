@@ -1,32 +1,26 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const PricingCard = ({ plan, idx, trainerId }) => {
-  const [selectedPlan, setSelectedPlan] = useState("");
-  const [planID, setPlanID] = useState("");
+const PricingCard = ({ plan, trainerId, selectedPlan, onSelectPlan }) => {
   const navigate = useNavigate();
 
-  const handleSelectPlan = (idx, id) => {
-    setSelectedPlan(idx);
-    setPlanID(id);
+  const handleSelectPlan = (id) => {
+    onSelectPlan(id);
   };
 
-  console.log("plan:", selectedPlan);
   const handleJoin = () => {
-    const plan = { trainerId, planID };
-    const planJSON = JSON.stringify(plan);
+    const planData = { trainerId, planID: plan._id };
+    const planJSON = JSON.stringify(planData);
     localStorage.setItem("plan", planJSON);
     navigate("/payment");
   };
 
   return (
     <div
-      key={idx}
       className={`max-w-sm rounded-lg shadow-lg p-6 m-4 border hover:cursor-pointer ${
-        selectedPlan === idx ? "bg-[#00032271]" : ""
+        selectedPlan === plan._id ? "bg-[#00032271]" : ""
       }`}
-      onClick={() => handleSelectPlan(idx, plan._id)}
+      onClick={() => handleSelectPlan(plan._id)}
     >
       <h2 className="text-3xl text-clr-main font-bold mb-4">{plan.title}</h2>
       <ul className="mb-6 pl-6">
@@ -40,9 +34,10 @@ const PricingCard = ({ plan, idx, trainerId }) => {
       <div className="text-center mt-6">
         <button
           className={`btn w-full rounded-lg transition duration-200 ${
-            selectedPlan !== idx ? "btn-disabled" : ""
+            selectedPlan !== plan._id ? "btn-disabled" : ""
           }`}
           onClick={handleJoin}
+          disabled={selectedPlan !== plan._id}
         >
           Join Now
         </button>
@@ -53,8 +48,9 @@ const PricingCard = ({ plan, idx, trainerId }) => {
 
 PricingCard.propTypes = {
   plan: PropTypes.object,
-  idx: PropTypes.number,
   trainerId: PropTypes.string,
+  selectedPlan: PropTypes.string,
+  onSelectPlan: PropTypes.func,
 };
 
 export default PricingCard;
