@@ -2,12 +2,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import SelectDropdown from "./SelectDropdown";
 import TrainerSkills from "./TrainerSkills";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const BeATrainer = () => {
   const [availableDays, setAvailable] = useState([]);
   const [experties, setExperties] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const { user, loader } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
 
   let days = [];
   let expertiesData = [];
@@ -43,7 +46,22 @@ const BeATrainer = () => {
       status: "pending",
     };
 
-    console.log(trainer);
+    // console.log(trainer);
+
+    axiosPublic.post("/appliedTrainer", trainer).then((res) => {
+      // console.log(res.data);
+      if (res.data.acknowledged === true) {
+        Swal.fire({
+          title: "Success!",
+          text: "Application Successfull!",
+          icon: "success",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
+      }
+    });
   };
 
   const daysOption = [
