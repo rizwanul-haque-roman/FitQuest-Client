@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import bg from "../../assets/paymentBg.jpg";
 import card from "../../assets/card.png";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { Link } from "react-router-dom";
 
 const Payment = () => {
   const axiosPublic = useAxiosPublic();
@@ -14,6 +15,7 @@ const Payment = () => {
   const plan = JSON.parse(planJSON);
   const slot = localStorage.getItem("slot");
   const { user, loader } = useContext(AuthContext);
+  const [success, setSuccess] = useState(false);
 
   const { isLoading: loadingTrainer, data: trainer } = useQuery({
     queryKey: ["trainer"],
@@ -102,9 +104,20 @@ const Payment = () => {
                 <p>{user.email}</p>
               </div>
               <div>
-                <Elements stripe={stripePromise}>
-                  <CheckoutForm paymentInfo={paymentInfo} />
-                </Elements>
+                {success ? (
+                  <Link to={"/"}>
+                    <button className="w-full btn bg-clr-main text-xl">
+                      payment completed
+                    </button>
+                  </Link>
+                ) : (
+                  <Elements stripe={stripePromise}>
+                    <CheckoutForm
+                      paymentInfo={paymentInfo}
+                      setSuccess={setSuccess}
+                    />
+                  </Elements>
+                )}
               </div>
               {/* <button
                 onClick={handleConfirm}

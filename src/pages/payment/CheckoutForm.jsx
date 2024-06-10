@@ -4,11 +4,10 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 
-const CheckoutForm = ({ paymentInfo }) => {
+const CheckoutForm = ({ paymentInfo, setSuccess }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const [trxnId, setTrxnId] = useState("");
   //TODO: have to use axiosSecure
   const axiosPublic = useAxiosPublic();
 
@@ -70,7 +69,11 @@ const CheckoutForm = ({ paymentInfo }) => {
       });
     } else {
       console.log(paymentIntent);
-      setTrxnId(paymentIntent.id);
+      axiosPublic
+        .post("/payments", { ...paymentInfo, trxnId: paymentIntent.id })
+        .then((res) => console.log(res.data));
+
+      setSuccess(true);
       Swal.fire({
         title: "Success!",
         text: "Your payment is successfull!",
@@ -109,6 +112,7 @@ const CheckoutForm = ({ paymentInfo }) => {
 
 CheckoutForm.propTypes = {
   paymentInfo: PropTypes.object,
+  setSuccess: PropTypes.func,
 };
 
 export default CheckoutForm;
