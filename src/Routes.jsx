@@ -13,6 +13,7 @@ import AllClasses from "./pages/allClasses/AllClasses";
 import PostDetails from "./pages/forum/PostDetails";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AllNewsletterSub from "./pages/dashboard/allNewsletterSub/AllNewsletterSub";
+import DashboardAllTrainers from "./pages/dashboardAllTrainers/DashboardAllTrainers";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/subscriber",
         element: <AllNewsletterSub />,
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <DashboardAllTrainers />,
       },
     ],
   },
