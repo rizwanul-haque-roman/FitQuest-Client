@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const DashboardAllTrainers = () => {
   const axiosPublic = useAxiosPublic();
@@ -18,11 +19,11 @@ const DashboardAllTrainers = () => {
 
   const handleDelete = async (id) => {
     console.log(id);
-    // /trainerToMember
     const res = await axiosPublic.patch(`/trainerToMember?id=${id}`);
     console.log(res.data);
 
     if (res?.data?.modifiedCount === 1) {
+      Swal.fire("Trainer deleted successfully");
       refetch();
     }
   };
