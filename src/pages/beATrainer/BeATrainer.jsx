@@ -41,9 +41,12 @@ const BeATrainer = () => {
       availableDays: availableDays,
       availableTime: AvailableTime,
       yearsOfExperience: experience,
+      role: "member",
       bio: bio,
       areasOfExpertise: experties,
       status: "pending",
+      slotsAvailable: [],
+      classes: [],
     };
 
     // console.log(trainer);

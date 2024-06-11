@@ -14,6 +14,8 @@ import PostDetails from "./pages/forum/PostDetails";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AllNewsletterSub from "./pages/dashboard/allNewsletterSub/AllNewsletterSub";
 import DashboardAllTrainers from "./pages/dashboardAllTrainers/DashboardAllTrainers";
+import AppliedTrainers from "./pages/dashboard/appliedTrainers/AppliedTrainers";
+import ApplicantsDetails from "./pages/dashboard/appliedTrainers/ApplicantsDetails";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/trainers",
         element: <DashboardAllTrainers />,
+      },
+      {
+        path: "/dashboard/appliedtrainers",
+        element: <AppliedTrainers />,
+      },
+      {
+        path: "/dashboard/applicant/:id",
+        element: <ApplicantsDetails />,
       },
     ],
   },

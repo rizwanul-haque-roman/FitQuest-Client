@@ -60,7 +60,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard"
+                  to="/dashboard/appliedtrainers"
                   className={({ isActive }) =>
                     isActive ? " text-clr-main font-bold" : ""
                   }

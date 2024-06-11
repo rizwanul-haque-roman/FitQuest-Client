@@ -122,7 +122,7 @@ const TrainerDetails = () => {
               <div className="space-y-2 mt-6 w-full">
                 <p>
                   <span className="text-xl text-clr-main font-semibold">
-                    Available days:{" "}
+                    Available Time:{" "}
                   </span>
                   {trainer?.availableTime}
                 </p>
