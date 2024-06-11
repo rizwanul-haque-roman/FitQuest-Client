@@ -11,6 +11,8 @@ import Payment from "./pages/payment/Payment";
 import BeATrainer from "./pages/beATrainer/BeATrainer";
 import AllClasses from "./pages/allClasses/AllClasses";
 import PostDetails from "./pages/forum/PostDetails";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AllNewsletterSub from "./pages/dashboard/allNewsletterSub/AllNewsletterSub";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,16 @@ const router = createBrowserRouter([
       {
         path: "/post/:id",
         element: <PostDetails />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/subscriber",
+        element: <AllNewsletterSub />,
       },
     ],
   },
