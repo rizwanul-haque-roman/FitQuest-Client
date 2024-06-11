@@ -1,18 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import banner from "../../assets/forumBanner.png";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
-import PostCard from "./PostCard";
+import ClassCard from "../../shared/ClassCard";
 
-const Forum = () => {
+const AllClasses = () => {
   const axiosPublic = useAxiosPublic();
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data } = useQuery({
-    queryKey: ["totalPosts"],
+    queryKey: ["totalClasses"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/totalPosts`);
+      const res = await axiosPublic.get(`/totalClasses`);
       setCount(res.data.count);
       return res.data;
     },
@@ -20,22 +19,22 @@ const Forum = () => {
 
   const {
     isPending: isLoading,
-    data: posts,
+    data: classes,
     refetch,
   } = useQuery({
-    queryKey: ["posts"],
+    queryKey: ["classes"],
     queryFn: async () => {
       const res = await axiosPublic.get(
-        `/posts?page=${currentPage - 1}&size=${dataPerPage}`
+        `/classes?page=${currentPage - 1}&size=${dataPerPage}`
       );
       return res.data;
     },
   });
 
-  const dataPerPage = 6;
+  const dataPerPage = 9;
   let totalPages = Math.ceil(count / dataPerPage);
 
-  console.log("Posts:", posts, currentPage);
+  console.log("classes:", classes, currentPage);
 
   const pages = [...Array(totalPages).keys()];
 
@@ -53,25 +52,11 @@ const Forum = () => {
   useEffect(() => {
     refetch();
   }, [currentPage, refetch]);
-
   return (
     <div className="pt-28">
-      <div className="w-11/12 lg:container mx-auto ">
-        <div className="border border-clr-main overflow-hidden lg:h-[40vh] rounded-2xl">
-          <img className="w-full" src={banner} alt="" />
-        </div>
+      <div className="w-11/12 lg:container mx-auto">
         <div className="my-6">
-          <h1 className="text-5xl font-bold text-clr-main">Fitness Forum</h1>
-          <p className="mt-4">
-            Welcome to FitQuest Forum, your go-to community for all things
-            fitness! Whether you&apos;re a beginner seeking advice or a seasoned
-            athlete looking to share your expertise, our forum provides a
-            supportive space to discuss workouts, nutrition, wellness tips, and
-            more. Connect with fellow fitness enthusiasts, get expert advice,
-            and stay motivated on your fitness journey. Join us and be part of a
-            vibrant community dedicated to achieving health and wellness goals
-            together!
-          </p>
+          <h1 className="text-5xl font-bold text-clr-main">All Classes</h1>
         </div>
         <div className="flex flex-col justify-between min-h-screen">
           <div className="grid grid-cols-3 gap-6">
@@ -82,7 +67,9 @@ const Forum = () => {
                 </div>
               </div>
             ) : (
-              posts.map((post) => <PostCard key={post._id} post={post} />)
+              classes.map((classData) => (
+                <ClassCard key={classData._id} classData={classData} />
+              ))
             )}
           </div>
           <div className="my-6 text-center">
@@ -120,4 +107,4 @@ const Forum = () => {
   );
 };
 
-export default Forum;
+export default AllClasses;

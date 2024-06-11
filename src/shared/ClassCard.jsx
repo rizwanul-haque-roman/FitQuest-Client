@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ClassCard = ({ classData }) => {
   return (
@@ -17,12 +18,14 @@ const ClassCard = ({ classData }) => {
         </p>
         <p className="font-bold">Trainers who take this class:</p>
         <div className="flex gap-5">
-          {classData.trainers.map((trainer, idx) => (
-            <div key={idx} className="avatar">
-              <div className="w-10 rounded-full ring ring-clr-main ring-offset-base-100">
-                <img src={trainer.profileImage} />
+          {classData?.trainers?.map((trainer, idx) => (
+            <Link key={idx} to={`/trainer/${trainer._id}`}>
+              <div className="avatar">
+                <div className="w-10 rounded-full ring ring-clr-main ring-offset-base-100">
+                  <img src={trainer.profileImage} />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
