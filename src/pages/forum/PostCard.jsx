@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
   return (
@@ -27,9 +28,11 @@ const PostCard = ({ post }) => {
             </div>
           </div>
           <div>
-            <button className="btn btn-sm hover:bg-clr-main">
-              View full post
-            </button>
+            <Link to={`/post/${post._id}`}>
+              <button className="btn btn-sm hover:bg-clr-main">
+                View full post
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import TrainerBooking from "./pages/trainerBooking/TrainerBooking";
 import Payment from "./pages/payment/Payment";
 import BeATrainer from "./pages/beATrainer/BeATrainer";
 import AllClasses from "./pages/allClasses/AllClasses";
+import PostDetails from "./pages/forum/PostDetails";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/post/:id",
-        element: <AllClasses />,
+        element: <PostDetails />,
       },
     ],
   },
