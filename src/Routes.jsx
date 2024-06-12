@@ -18,6 +18,8 @@ import AppliedTrainers from "./pages/dashboard/appliedTrainers/AppliedTrainers";
 import ApplicantsDetails from "./pages/dashboard/appliedTrainers/ApplicantsDetails";
 import Balance from "./pages/dashboard/balance/Balance";
 import AddNewClass from "./pages/dashboard/addClass/AddNewClass";
+import ManageSlots from "./pages/dashboard/TrainerRoutes/manageSlots/ManageSlots";
+import AddNewSlot from "./pages/dashboard/TrainerRoutes/addNewSlot/AddNewSlot";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +99,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/addClass",
         element: <AddNewClass />,
+      },
+      {
+        path: "/dashboard/manageSlots",
+        element: <ManageSlots />,
+      },
+      {
+        path: "/dashboard/addNewSlot",
+        element: <AddNewSlot />,
       },
     ],
   },

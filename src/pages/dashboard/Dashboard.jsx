@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { IoNewspaper } from "react-icons/io5";
@@ -7,7 +7,11 @@ import { IoDocuments } from "react-icons/io5";
 import { RiPlayListAddLine } from "react-icons/ri";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const location = useLocation();
+  const path = location.pathname;
+
+  const isAdmin = false;
+  const isTrainer = true;
   return (
     <div className="flex">
       {/* dashboard side bar */}
@@ -17,7 +21,7 @@ const Dashboard = () => {
             <MdSpaceDashboard className="text-3xl" />
             <h1 className="text-3xl font-bold">Dashboard</h1>
           </div>
-          {isAdmin ? (
+          {isAdmin && (
             <>
               <li>
                 <NavLink
@@ -85,8 +89,29 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-          ) : (
+          )}
+          {isTrainer && (
             <>
+              <li>
+                <NavLink
+                  to="/dashboard/manageSlots"
+                  className={({ isActive }) =>
+                    isActive ? " text-clr-main font-bold" : ""
+                  }
+                >
+                  <div className="flex gap-3 items-center">Manage Slots</div>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/addNewSlot"
+                  className={({ isActive }) =>
+                    isActive ? " text-clr-main font-bold" : ""
+                  }
+                >
+                  <div className="flex gap-3 items-center">Add New Slot</div>
+                </NavLink>
+              </li>
               <li>
                 <NavLink
                   to="/dashboard"
@@ -94,10 +119,7 @@ const Dashboard = () => {
                     isActive ? " text-clr-main font-bold" : ""
                   }
                 >
-                  <div className="flex gap-3 items-center">
-                    <FaHome className="text-2xl" />
-                    User Home
-                  </div>
+                  <div className="flex gap-3 items-center">Add new forum</div>
                 </NavLink>
               </li>
             </>
@@ -108,14 +130,19 @@ const Dashboard = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/order/salad">Menu</NavLink>
+            <NavLink to="/allClasses">Classes</NavLink>
           </li>
           <li>
-            <NavLink to="/order/contact">Contact</NavLink>
+            <NavLink to="/forum">Forum</NavLink>
           </li>
         </ul>
       </div>
       <div className="flex-1 p-8">
+        {path === "/dashboard" && (
+          <div className="text-7xl font-bold h-[80vh] flex justify-center items-center">
+            <p>Welcome to Dashboard</p>
+          </div>
+        )}
         <Outlet></Outlet>
       </div>
     </div>
