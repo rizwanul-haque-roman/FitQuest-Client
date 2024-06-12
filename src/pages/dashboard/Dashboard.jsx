@@ -10,8 +10,8 @@ const Dashboard = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  const isAdmin = false;
-  const isTrainer = true;
+  const isAdmin = true;
+  const isTrainer = false;
   return (
     <div className="flex">
       {/* dashboard side bar */}

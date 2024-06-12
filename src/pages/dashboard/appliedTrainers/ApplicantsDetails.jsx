@@ -8,8 +8,6 @@ const ApplicantsDetails = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
-  console.log(id);
-
   const { isLoading, data: applicant } = useQuery({
     queryKey: ["applicant"],
     queryFn: async () => {
@@ -34,6 +32,28 @@ const ApplicantsDetails = () => {
       navigate("/dashboard/appliedtrainers");
       Swal.fire("Application approved");
     }
+  };
+
+  const handleReject = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const feedback = form.feedback.value;
+    const rejection = {
+      id: applicant._id,
+      status: "Rejected",
+      role: "member",
+      feedback: feedback,
+    };
+
+    const res = await axiosPublic.patch(`/rejection`, rejection);
+    console.log(res.data);
+
+    if (res?.data?.modifiedCount === 1) {
+      navigate("/dashboard/appliedtrainers");
+      Swal.fire("Application Rejected");
+    }
+
+    // console.log(rejection);
   };
 
   return (
@@ -126,8 +146,119 @@ const ApplicantsDetails = () => {
               <button onClick={handleApprove} className="btn bg-[#1a560e]">
                 Approve
               </button>
-              <button className="btn bg-clr-main">Reject</button>
+              <button
+                onClick={() =>
+                  document.getElementById("reject_modal").showModal()
+                }
+                className="btn bg-clr-main"
+              >
+                Reject
+              </button>
             </div>
+            <dialog id="reject_modal" className="modal">
+              <div className="modal-box w-11/12 max-w-5xl">
+                <div>
+                  <div>
+                    <div>
+                      <div className="flex items-center gap-6">
+                        <div className="w-1/4">
+                          <img
+                            className="rounded-2xl border-2 border-clr-main"
+                            src={applicant?.profileImage}
+                            alt=""
+                          />
+                        </div>
+                        <div className="w-3/4 space-y-3">
+                          <h4 className="text-2xl font-semibold text-clr-main">
+                            {applicant.fullName}
+                          </h4>
+                          <p>Age: {applicant.age}</p>
+                          <p>Email: {applicant.email}</p>
+                          <p>
+                            With{" "}
+                            <span className="text-xl font-semibold text-clr-main">
+                              {applicant?.yearsOfExperience}
+                            </span>{" "}
+                            Years of experience
+                          </p>
+                          <p className="text-xl font-semibold text-clr-main underline">
+                            Bio
+                          </p>
+                          <p>{applicant?.bio}</p>
+                        </div>
+                      </div>
+                      <div className="mt-6">
+                        <div>
+                          <p className="text-xl font-semibold text-clr-main underline mb-3">
+                            Skills
+                          </p>
+                          <div className="flex flex-wrap gap-3 mb-6">
+                            {applicant?.skills.map((skill, idx) => (
+                              <div key={idx}>
+                                <p className="badge badge-primary">{skill}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-xl font-semibold text-clr-main underline mb-3">
+                          Experties
+                        </p>
+                        <div className="flex flex-wrap gap-3">
+                          {applicant?.areasOfExpertise.map((exprts, idx) => (
+                            <div key={idx}>
+                              <p className="badge badge-primary">{exprts}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="space-y-2 mt-6 w-full">
+                        <p>
+                          <span className="text-xl text-clr-main font-semibold">
+                            Available Time:{" "}
+                          </span>
+                          {applicant?.availableTime}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-xl font-semibold text-clr-main">
+                            Available Days:
+                          </p>
+                          <div className=" flex gap-3">
+                            {applicant?.availableDays.map((day, idx) => (
+                              <div key={idx}>
+                                <p className="">{day}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form onSubmit={handleReject} action="">
+                    <label className="form-control">
+                      <div className="label">
+                        <span className="label-text-alt text-xl">
+                          Give feedback
+                        </span>
+                      </div>
+                      <textarea
+                        className="textarea textarea-bordered h-24"
+                        name="feedback"
+                        placeholder="Write why you want to reject this appicant's application"
+                        required
+                      ></textarea>
+                    </label>
+                    <div className="mt-6 flex justify-center">
+                      <button className="btn bg-clr-main">
+                        Give feedback and Reject
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              {/* <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form> */}
+            </dialog>
           </div>
         </div>
       )}
