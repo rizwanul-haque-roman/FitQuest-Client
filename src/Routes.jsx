@@ -21,6 +21,7 @@ import AddNewClass from "./pages/dashboard/addClass/AddNewClass";
 import ManageSlots from "./pages/dashboard/TrainerRoutes/manageSlots/ManageSlots";
 import AddNewSlot from "./pages/dashboard/TrainerRoutes/addNewSlot/AddNewSlot";
 import AddForum from "./pages/dashboard/AddForum";
+import PrivateRoute from "./private/Private";
 
 const router = createBrowserRouter([
   {
@@ -53,15 +54,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/booking/:id",
-        element: <TrainerBooking />,
+        element: (
+          <PrivateRoute>
+            <TrainerBooking />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/payment",
-        element: <Payment />,
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/beATrainer",
-        element: <BeATrainer />,
+        element: (
+          <PrivateRoute>
+            <BeATrainer />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allClasses",
@@ -75,7 +88,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard/adminHome",
