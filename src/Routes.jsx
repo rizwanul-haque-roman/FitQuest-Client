@@ -17,6 +17,7 @@ import DashboardAllTrainers from "./pages/dashboardAllTrainers/DashboardAllTrain
 import AppliedTrainers from "./pages/dashboard/appliedTrainers/AppliedTrainers";
 import ApplicantsDetails from "./pages/dashboard/appliedTrainers/ApplicantsDetails";
 import Balance from "./pages/dashboard/balance/Balance";
+import AddNewClass from "./pages/dashboard/addClass/AddNewClass";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/adminHome",
         element: <Balance />,
       },
       {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/applicant/:id",
         element: <ApplicantsDetails />,
+      },
+      {
+        path: "/dashboard/addClass",
+        element: <AddNewClass />,
       },
     ],
   },

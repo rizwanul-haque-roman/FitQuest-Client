@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const ClassCard = ({ classData }) => {
   return (
     <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out flex items-center gap-4">
-      <div className="w-1/2">
+      <div className="w-1/3">
         <img src={classData.image} alt="" />
       </div>
-      <div className=" space-y-2">
+      <div className="w-2/3 space-y-2">
         <h3 className="text-2xl font-bold text-clr-main">
           {classData.className}
         </h3>

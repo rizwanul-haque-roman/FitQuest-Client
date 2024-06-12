@@ -22,14 +22,6 @@ const Balance = () => {
     },
   });
 
-  const { data: subMembers } = useQuery({
-    queryKey: ["subMembers"],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/subMember`);
-      return res.data;
-    },
-  });
-
   return (
     <div>
       <div className="w-11/12 lg:container mx-auto ">
@@ -44,14 +36,6 @@ const Balance = () => {
             <h2 className="text-5xl font-bold text-clr-main mb-6">
               Subscribers VS Paid Members
             </h2>
-            {/* <PieChart
-              className="h-[250px]"
-              data={[
-                { title: "One", value: 10, color: "#E38627" },
-                { title: "Two", value: 15, color: "#C13C37" },
-                { title: "Three", value: 20, color: "#6A2135" },
-              ]}
-            /> */}
             <PieChart />
           </div>
         </div>

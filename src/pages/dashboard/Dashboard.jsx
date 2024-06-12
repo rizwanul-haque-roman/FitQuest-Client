@@ -21,7 +21,7 @@ const Dashboard = () => {
             <>
               <li>
                 <NavLink
-                  to="/dashboard"
+                  to="/dashboard/adminHome"
                   className={({ isActive }) =>
                     isActive ? " text-clr-main font-bold" : ""
                   }
@@ -67,13 +67,13 @@ const Dashboard = () => {
                 >
                   <div className="flex gap-3 items-center">
                     <IoDocuments className="text-2xl" />
-                    Applied Trainer
+                    Applied Trainers
                   </div>
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/dashboard"
+                  to="/dashboard/addClass"
                   className={({ isActive }) =>
                     isActive ? " text-clr-main font-bold" : ""
                   }
