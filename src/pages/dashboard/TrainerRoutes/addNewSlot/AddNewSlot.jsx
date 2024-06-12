@@ -48,7 +48,11 @@ const AddNewSlot = () => {
   );
 
   let classlist = [];
-  classlist = classes.map((cls) => cls.value);
+  let days = [];
+  classlist = classes?.map((cls) => cls.value);
+  days = availableDays?.map((day) => day.value);
+
+  console.log(days);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -58,7 +62,7 @@ const AddNewSlot = () => {
 
     console.log(availableDays);
     const updatedTrainerInfo = {
-      days: availableDays,
+      days: days,
       slotsAvailable: [
         ...trainer?.slotsAvailable,
         { day: slot, time: slotTime },
@@ -73,7 +77,7 @@ const AddNewSlot = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.acknowledged === true) {
-          Swal.fire("slot added");
+          Swal.fire("Information Updated Successfully");
         }
       });
   };
@@ -85,163 +89,165 @@ const AddNewSlot = () => {
           Add New Slot
         </h1>
       </div>
-      <div>
-        <form onSubmit={handleSubmit} className="w-full mb-12">
-          <div className="flex gap-6">
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">Name</span>
-              </div>
-              <input
-                type="text"
-                name="name"
-                value={trainer?.fullName}
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">Email</span>
-              </div>
-              <input
-                type="email"
-                value={trainer?.email}
-                name="email"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">Age</span>
-              </div>
-              <input
-                type="number"
-                value={trainer?.age}
-                name="age"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Years of Experience
-                </span>
-              </div>
-              <input
-                type="number"
-                value={trainer?.yearsOfExperience}
-                name="experience"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-          </div>
-          <label className="form-control w-full mt-6">
-            <div className="label">
-              <span className="label-text text-lg font-semibold">Bio</span>
-            </div>
-            <textarea
-              value={trainer?.bio}
-              name="bio"
-              className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-              required
-            />
-          </label>
-          <div className="flex gap-6">
-            <label className="form-control w-full mt-6">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Profile image URL
-                </span>
-              </div>
-              <input
-                type="url"
-                placeholder="Enter Profile image url"
-                value={trainer?.profileImage}
-                name="url"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-            <label className="form-control w-full mt-6">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Available Time
-                </span>
-              </div>
-              <input
-                type="text"
-                value={trainer?.availableTime}
-                name="time"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-          </div>
-          <div className="flex gap-6 items-center mt-6">
-            <label className="form-control w-full mt-6">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Available Days
-                </span>
-              </div>
-              {!isLoading && (
-                <SelectDropdown
-                  options={daysOption}
-                  setValue={setAvailableDays}
-                  defaultValue={selectedOptions}
+      {!isLoading && (
+        <div>
+          <form onSubmit={handleSubmit} className="w-full mb-12">
+            <div className="flex gap-6">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">Name</span>
+                </div>
+                <input
+                  type="text"
+                  name="name"
+                  value={trainer?.fullName}
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
                 />
-              )}
-            </label>
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Email
+                  </span>
+                </div>
+                <input
+                  type="email"
+                  value={trainer?.email}
+                  name="email"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">Age</span>
+                </div>
+                <input
+                  type="number"
+                  value={trainer?.age}
+                  name="age"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Years of Experience
+                  </span>
+                </div>
+                <input
+                  type="number"
+                  value={trainer?.yearsOfExperience}
+                  name="experience"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
+                />
+              </label>
+            </div>
             <label className="form-control w-full mt-6">
               <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Classes
-                </span>
+                <span className="label-text text-lg font-semibold">Bio</span>
               </div>
-              <SelectDropdown
-                options={classesOptions}
-                setValue={setClasses}
-                placeholder={"Select Classes from below"}
-              />
-            </label>
-          </div>
-          <div className="flex gap-6">
-            <label className="form-control w-full mt-6">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">Slot</span>
-              </div>
-              <input
-                type="text"
-                placeholder="Ex. Sat"
-                name="slot"
+              <textarea
+                value={trainer?.bio}
+                name="bio"
                 className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
                 required
               />
             </label>
-            <label className="form-control w-full mt-6">
-              <div className="label">
-                <span className="label-text text-lg font-semibold">
-                  Slot Time
-                </span>
-              </div>
-              <input
-                type="text"
-                placeholder="Ex. 7:00 AM - 8:00 AM"
-                name="slotTime"
-                className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
-                required
-              />
-            </label>
-          </div>
-          <button className="mt-10 btn w-full bg-clr-main text-xl text-white font-semibold border-none">
-            Apply
-          </button>
-        </form>
-      </div>
+            <div className="flex gap-6">
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Profile image URL
+                  </span>
+                </div>
+                <input
+                  type="url"
+                  placeholder="Enter Profile image url"
+                  value={trainer?.profileImage}
+                  name="url"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
+                />
+              </label>
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Available Time
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  value={trainer?.availableTime}
+                  name="time"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
+                />
+              </label>
+            </div>
+            <div className="flex gap-6 items-center mt-6">
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Available Days
+                  </span>
+                </div>
+                {!isLoading && (
+                  <SelectDropdown
+                    options={daysOption}
+                    setValue={setAvailableDays}
+                    defaultValue={selectedOptions}
+                  />
+                )}
+              </label>
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Classes
+                  </span>
+                </div>
+                <SelectDropdown
+                  options={classesOptions}
+                  setValue={setClasses}
+                  placeholder={"Select Classes from below"}
+                />
+              </label>
+            </div>
+            <div className="flex gap-6">
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">Slot</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Ex. Sat"
+                  name="slot"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                />
+              </label>
+              <label className="form-control w-full mt-6">
+                <div className="label">
+                  <span className="label-text text-lg font-semibold">
+                    Slot Time
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Ex. 7:00 AM - 8:00 AM"
+                  name="slotTime"
+                  className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                />
+              </label>
+            </div>
+            <button className="mt-10 btn w-full bg-clr-main text-xl text-white font-semibold border-none">
+              Apply
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

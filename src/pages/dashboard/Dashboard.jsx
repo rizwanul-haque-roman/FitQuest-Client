@@ -124,6 +124,19 @@ const Dashboard = () => {
               </li>
             </>
           )}
+
+          {(isAdmin || isTrainer) && (
+            <li>
+              <NavLink
+                to="/dashboard/CreateForum"
+                className={({ isActive }) =>
+                  isActive ? " text-clr-main font-bold" : ""
+                }
+              >
+                <div className="flex gap-3 items-center">Add new forum</div>
+              </NavLink>
+            </li>
+          )}
           {/* common navlink */}
           <div className="divider"></div>
           <li>

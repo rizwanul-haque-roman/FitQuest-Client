@@ -17,12 +17,14 @@ const DashboardAllTrainers = () => {
     },
   });
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, email) => {
     console.log(id);
-    const res = await axiosPublic.patch(`/trainerToMember?id=${id}`);
+    const res = await axiosPublic.patch(
+      `/trainerToMember?id=${id}&email=${email}`
+    );
     console.log(res.data);
 
-    if (res?.data?.modifiedCount === 1) {
+    if (res?.data?.result?.modifiedCount === 1) {
       Swal.fire("Trainer deleted successfully");
       refetch();
     }
@@ -64,18 +66,20 @@ const DashboardAllTrainers = () => {
                             <div className="avatar">
                               <div className="mask mask-squircle w-12 h-12">
                                 <img
-                                  src={trainer.profileImage}
+                                  src={trainer?.profileImage}
                                   alt="Avatar Tailwind CSS Component"
                                 />
                               </div>
                             </div>
                           }
                         </th>
-                        <td>{trainer.fullName}</td>
-                        <td>{trainer.email}</td>
+                        <td>{trainer?.fullName}</td>
+                        <td>{trainer?.email}</td>
                         <td>
                           <button
-                            onClick={() => handleDelete(trainer._id)}
+                            onClick={() =>
+                              handleDelete(trainer?._id, trainer?.email)
+                            }
                             className="btn bg-clr-main"
                           >
                             Delete Trainer

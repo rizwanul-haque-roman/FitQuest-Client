@@ -61,16 +61,16 @@ const TrainerDetails = () => {
                 <div className="w-1/4 mt-6">
                   <img
                     className="rounded-full border-2 border-clr-main"
-                    src={trainer.profileImage}
+                    src={trainer?.profileImage}
                     alt=""
                   />
                 </div>
                 <div className="w-3/4 space-y-3">
                   <h4 className="text-2xl font-semibold text-clr-main">
-                    {trainer.fullName}
+                    {trainer?.fullName}
                   </h4>
-                  <p>Age: {trainer.age}</p>
-                  <p>Email: {trainer.email}</p>
+                  <p>Age: {trainer?.age}</p>
+                  <p>Email: {trainer?.email}</p>
                   <div className="flex gap-3 text-2xl">
                     <Link>
                       <FaFacebookF />

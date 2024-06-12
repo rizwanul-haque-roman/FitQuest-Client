@@ -22,7 +22,7 @@ SelectDropdown.propTypes = {
   options: PropTypes.array,
   setValue: PropTypes.func,
   placeholder: PropTypes.string,
-  defaultValue: PropTypes.array,
+  defaultValue: PropTypes.object,
 };
 
 export default SelectDropdown;

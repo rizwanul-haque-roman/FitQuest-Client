@@ -20,6 +20,7 @@ import Balance from "./pages/dashboard/balance/Balance";
 import AddNewClass from "./pages/dashboard/addClass/AddNewClass";
 import ManageSlots from "./pages/dashboard/TrainerRoutes/manageSlots/ManageSlots";
 import AddNewSlot from "./pages/dashboard/TrainerRoutes/addNewSlot/AddNewSlot";
+import AddForum from "./pages/dashboard/AddForum";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/addNewSlot",
         element: <AddNewSlot />,
+      },
+      {
+        path: "/dashboard/createForum",
+        element: <AddForum />,
       },
     ],
   },

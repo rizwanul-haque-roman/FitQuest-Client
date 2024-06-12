@@ -21,6 +21,7 @@ const ApplicantsDetails = () => {
   const handleApprove = async () => {
     const promoteTrainer = {
       id: applicant._id,
+      email: applicant.email,
       status: "approved",
       role: "trainer",
       classes: applicant.areasOfExpertise,
@@ -29,7 +30,7 @@ const ApplicantsDetails = () => {
     const res = await axiosPublic.patch(`/memberToTrainer`, promoteTrainer);
     console.log(res.data);
 
-    if (res?.data?.modifiedCount === 1) {
+    if (res?.data?.result?.modifiedCount === 1) {
       navigate("/dashboard/appliedtrainers");
       Swal.fire("Application approved");
     }
