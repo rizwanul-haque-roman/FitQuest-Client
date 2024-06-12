@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const ApplicantsDetails = () => {
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
 
   console.log(id);
 
@@ -15,6 +17,23 @@ const ApplicantsDetails = () => {
       return res.data;
     },
   });
+
+  const handleApprove = async () => {
+    const promoteTrainer = {
+      id: applicant._id,
+      status: "approved",
+      role: "trainer",
+      classes: applicant.areasOfExpertise,
+    };
+
+    const res = await axiosPublic.patch(`/memberToTrainer`, promoteTrainer);
+    console.log(res.data);
+
+    if (res?.data?.modifiedCount === 1) {
+      navigate("/dashboard/appliedtrainers");
+      Swal.fire("Application approved");
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -103,7 +122,9 @@ const ApplicantsDetails = () => {
               </div>
             </div>
             <div className="mt-6 flex justify-center items-center gap-6">
-              <button className="btn bg-[#1a560e]">Approve</button>
+              <button onClick={handleApprove} className="btn bg-[#1a560e]">
+                Approve
+              </button>
               <button className="btn bg-clr-main">Reject</button>
             </div>
           </div>

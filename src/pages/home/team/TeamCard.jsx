@@ -44,13 +44,19 @@ const TeamCard = ({ trainer }) => {
         <div className="space-y-2">
           <p className="text-xl font-semibold text-clr-main">Available Slots</p>
           <div className="flex gap-2">
-            {trainer?.slotsAvailable.map((slot, idx) => (
-              <div key={idx}>
-                <p className="btn btn-lg text-xs hover:bg-clr-main">
-                  {slot.day} <br /> {slot.time}
-                </p>
-              </div>
-            ))}
+            {trainer?.slotsAvailable.length === 0 ? (
+              <p>No Slots Available</p>
+            ) : (
+              <>
+                {trainer?.slotsAvailable.map((slot, idx) => (
+                  <div key={idx}>
+                    <p className="btn btn-lg text-xs hover:bg-clr-main">
+                      {slot.day} <br /> {slot.time}
+                    </p>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
           <p className="text-xl font-semibold text-clr-main">
             Classes by this trainer

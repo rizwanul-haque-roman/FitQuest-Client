@@ -143,16 +143,22 @@ const TrainerDetails = () => {
                     Slots info
                   </p>
                   <div className="flex gap-6 justify-between">
-                    {trainer?.slotsAvailable.map((slot, idx) => (
-                      <div key={idx}>
-                        <button
-                          onClick={() => handleSlot(idx)}
-                          className="btn btn-lg hover:bg-clr-main"
-                        >
-                          {slot.day} <br /> {slot.time}
-                        </button>
-                      </div>
-                    ))}
+                    {trainer?.slotsAvailable.length === 0 ? (
+                      <p>No Slots Available</p>
+                    ) : (
+                      <>
+                        {trainer?.slotsAvailable.map((slot, idx) => (
+                          <div key={idx}>
+                            <button
+                              onClick={() => handleSlot(idx)}
+                              className="btn btn-lg hover:bg-clr-main"
+                            >
+                              {slot.day} <br /> {slot.time}
+                            </button>
+                          </div>
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
                 <div>

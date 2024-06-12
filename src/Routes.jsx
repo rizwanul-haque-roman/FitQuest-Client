@@ -16,6 +16,7 @@ import AllNewsletterSub from "./pages/dashboard/allNewsletterSub/AllNewsletterSu
 import DashboardAllTrainers from "./pages/dashboardAllTrainers/DashboardAllTrainers";
 import AppliedTrainers from "./pages/dashboard/appliedTrainers/AppliedTrainers";
 import ApplicantsDetails from "./pages/dashboard/appliedTrainers/ApplicantsDetails";
+import Balance from "./pages/dashboard/balance/Balance";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard />,
     children: [
+      {
+        path: "/dashboard",
+        element: <Balance />,
+      },
       {
         path: "/dashboard/subscriber",
         element: <AllNewsletterSub />,

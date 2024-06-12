@@ -79,29 +79,29 @@ const Payment = () => {
             <div className="w-1/2 flex flex-col gap-4 z-30 relative">
               <div className="flex justify-between">
                 <p>Trainer: </p>
-                <p>{trainer.fullName}</p>
+                <p>{trainer?.fullName}</p>
               </div>
               <div className="flex justify-between">
                 <p>Slot:</p>
                 <p>
-                  {bookedSlot.day}-{bookedSlot.time}
+                  {bookedSlot?.day}-{bookedSlot.time}
                 </p>
               </div>
               <div className="flex justify-between">
                 <p>Package Name: </p>
-                <p>{planData.title}</p>
+                <p>{planData?.title}</p>
               </div>
               <div className="flex justify-between">
                 <p>Price: </p>
-                <p>${planData.price}</p>
+                <p>${planData?.price}</p>
               </div>
               <div className="flex justify-between">
                 <p>Member name: </p>
-                <p>{user.displayName}</p>
+                <p>{user?.displayName}</p>
               </div>
               <div className="flex justify-between">
                 <p>Member email: </p>
-                <p>{user.email}</p>
+                <p>{user?.email}</p>
               </div>
               <div>
                 {success ? (
