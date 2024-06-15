@@ -8,13 +8,13 @@ import { RiPlayListAddLine } from "react-icons/ri";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
 
 const Dashboard = () => {
   const location = useLocation();
   const path = location.pathname;
   const [admin, setAdmin] = useState(false);
   const [trainer, setTrainer] = useState(false);
+  const [member, setMember] = useState(false);
   const { user, loader } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
 
@@ -23,10 +23,12 @@ const Dashboard = () => {
       setAdmin(true);
     } else if (res.data[0].role === "trainer") {
       setTrainer(true);
+    } else {
+      setMember(true);
     }
   });
 
-  //   console.log(userData);
+  // console.log(userData);
 
   return (
     <div>
@@ -150,6 +152,44 @@ const Dashboard = () => {
                     <div className="flex gap-3 items-center">Add new forum</div>
                   </NavLink>
                 </li>
+              )}
+              {member && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/activity"
+                      className={({ isActive }) =>
+                        isActive ? " text-clr-main font-bold" : ""
+                      }
+                    >
+                      <div className="flex gap-3 items-center">
+                        Activity Log
+                      </div>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/profile"
+                      className={({ isActive }) =>
+                        isActive ? " text-clr-main font-bold" : ""
+                      }
+                    >
+                      <div className="flex gap-3 items-center">Profile</div>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/bookedTrainer"
+                      className={({ isActive }) =>
+                        isActive ? " text-clr-main font-bold" : ""
+                      }
+                    >
+                      <div className="flex gap-3 items-center">
+                        Booked Trainer
+                      </div>
+                    </NavLink>
+                  </li>
+                </>
               )}
               {/* common navlink */}
               <div className="divider"></div>

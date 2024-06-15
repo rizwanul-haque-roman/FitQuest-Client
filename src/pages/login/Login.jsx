@@ -24,6 +24,13 @@ const Login = () => {
     login(email, pass)
       .then((result) => {
         console.log(result);
+        const userInfo = {
+          email: email,
+          lastLogin: result.user?.metadata?.lastSignInTime,
+        };
+        axiosPublic.patch("/users", userInfo).then((res) => {
+          console.log("Inside axios:", res.data);
+        });
         Swal.fire("Login Successful");
         navigate(location?.state ? location.state : "/");
       })
@@ -35,13 +42,10 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         const userInfo = {
-          email: result.user?.email,
-          name: result.user?.displayName,
-          photoURL: result.user?.photoURL,
-          role: "member",
+          lastLogin: result.user?.metadata?.lastSignInTime,
         };
-        axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+        axiosPublic.patch("/users", userInfo).then((res) => {
+          console.log("Inside axios:", res.data);
         });
         navigate("/");
         Swal.fire("Login Successful");

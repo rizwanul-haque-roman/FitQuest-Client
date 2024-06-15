@@ -27,12 +27,13 @@ const Register = () => {
     console.log({ name, url, email, pass });
     register(email, pass, name, url)
       .then((result) => {
-        console.log(url);
+        console.log(result);
         const userInfo = {
           email: email,
           name: name,
           photoURL: url,
           role: "member",
+          lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           console.log(res.data);
@@ -55,12 +56,13 @@ const Register = () => {
   const google = () => {
     googleLogin()
       .then((result) => {
-        // console.log(result);
+        console.log(result);
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
           photoURL: result.user?.photoURL,
           role: "member",
+          lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           console.log(res.data);
@@ -80,6 +82,7 @@ const Register = () => {
           name: result.user?.displayName,
           photoURL: result.user?.photoURL,
           role: "member",
+          lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           console.log(res.data);

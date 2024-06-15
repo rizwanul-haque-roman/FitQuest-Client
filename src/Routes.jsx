@@ -22,6 +22,9 @@ import ManageSlots from "./pages/dashboard/TrainerRoutes/manageSlots/ManageSlots
 import AddNewSlot from "./pages/dashboard/TrainerRoutes/addNewSlot/AddNewSlot";
 import AddForum from "./pages/dashboard/AddForum";
 import PrivateRoute from "./private/Private";
+import Profile from "./pages/dashboard/memberRoutes/profile/Profile";
+import BookedTrainer from "./pages/dashboard/memberRoutes/bookedTrainer/BookedTrainer";
+import ActivityLog from "./pages/dashboard/memberRoutes/activityLog/ActivityLog";
 
 const router = createBrowserRouter([
   {
@@ -129,6 +132,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/createForum",
         element: <AddForum />,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/dashboard/bookedTrainer",
+        element: <BookedTrainer />,
+      },
+      {
+        path: "/dashboard/activity",
+        element: <ActivityLog />,
       },
     ],
   },
