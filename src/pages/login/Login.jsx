@@ -7,6 +7,7 @@ import { AuthContext } from "../../auth/AuthProvider";
 import Swal from "sweetalert2";
 import { FaFacebookF } from "react-icons/fa6";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [viewPass, setVewPass] = useState(true);
@@ -74,6 +75,9 @@ const Login = () => {
 
   return (
     <div className="w-11/12 lg:container mx-auto min-h-screen bg-cover flex justify-center items-center">
+      <Helmet>
+        <title>FitQuest | Login</title>
+      </Helmet>
       <div className="justify-center items-center">
         <form
           onSubmit={handleSubmit}

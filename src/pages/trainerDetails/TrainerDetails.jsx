@@ -5,6 +5,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
 import ctaBanner from "../../assets/callToAction.png";
+import { Helmet } from "react-helmet-async";
 
 const TrainerDetails = () => {
   const { id } = useParams();
@@ -26,6 +27,9 @@ const TrainerDetails = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FitQuest | Trainer details</title>
+      </Helmet>
       {isLoading ? (
         <div className="col-span-3 justify-center items-center">
           <div className="flex justify-center items-center">

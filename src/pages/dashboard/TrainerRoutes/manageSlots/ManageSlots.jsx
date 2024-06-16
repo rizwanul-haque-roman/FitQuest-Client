@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../../../auth/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageSlots = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
   const {
@@ -15,7 +15,7 @@ const ManageSlots = () => {
   } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await axiosPublic.get(
+      const res = await axiosSecure.get(
         `/bookingData?name=${user.displayName}`
       );
       return res.data;
@@ -34,7 +34,7 @@ const ManageSlots = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/slotDeletion?id=${id}`).then((res) => {
+        axiosSecure.delete(`/slotDeletion?id=${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount === 1) {
             Swal.fire({

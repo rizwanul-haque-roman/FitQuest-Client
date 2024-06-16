@@ -9,6 +9,7 @@ import { AuthContext } from "../../auth/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [viewPass, setVewPass] = useState(true);
@@ -95,6 +96,9 @@ const Register = () => {
 
   return (
     <div className="w-11/12 lg:container mx-auto min-h-screen bg-cover flex justify-center items-center">
+      <Helmet>
+        <title>FitQuest | Register</title>
+      </Helmet>
       <div className="justify-center items-center">
         <form
           onSubmit={handleSubmit}

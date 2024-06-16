@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import TeamCard from "../home/team/TeamCard";
+import { Helmet } from "react-helmet-async";
 
 const AllTrainers = () => {
   const axiosPublic = useAxiosPublic();
@@ -53,6 +54,9 @@ const AllTrainers = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FitQuest | All Trainers</title>
+      </Helmet>
       <div className="w-11/12 lg:container mx-auto ">
         <div className="my-6">
           <h1 className="text-5xl font-bold text-clr-main">

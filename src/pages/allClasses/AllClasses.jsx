@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 import ClassCard from "../../shared/ClassCard";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
   const axiosPublic = useAxiosPublic();
@@ -73,6 +74,9 @@ const AllClasses = () => {
   }, [currentPage, refetch]);
   return (
     <div className="pt-28">
+      <Helmet>
+        <title>FitQuest | All Classes</title>
+      </Helmet>
       <div className="w-11/12 lg:container mx-auto">
         <div className="my-6 flex items-center justify-between gap-6">
           <h1 className="text-5xl font-bold text-clr-main">All Classes</h1>

@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import PieChart from "./PieChart";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 // import { PieChart } from "react-minimal-pie-chart";
 
 const Balance = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const { data: balance } = useQuery({
     queryKey: ["balance"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/totalBalance`);
+      const res = await axiosSecure.get(`/totalBalance`);
       return res.data;
     },
   });
@@ -17,7 +17,7 @@ const Balance = () => {
   const { isLoading, data: payments } = useQuery({
     queryKey: ["payments"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/payments`);
+      const res = await axiosSecure.get(`/payments`);
       return res.data;
     },
   });

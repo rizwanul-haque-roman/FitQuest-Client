@@ -8,6 +8,7 @@ import { RiPlayListAddLine } from "react-icons/ri";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -33,6 +34,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>FitQuest | Dashboard</title>
+      </Helmet>
       {loader ? (
         <p>Loading...</p>
       ) : (

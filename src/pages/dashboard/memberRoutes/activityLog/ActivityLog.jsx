@@ -1,17 +1,17 @@
 import { useContext } from "react";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { AuthContext } from "../../../../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { FaEye } from "react-icons/fa6";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ActivityLog = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
   const { isLoading, data: applicationStatus } = useQuery({
     queryKey: ["applicationStatus"],
     queryFn: async () => {
-      const res = await axiosPublic.get(
+      const res = await axiosSecure.get(
         `/applicationStatus?email=${user.email}`
       );
       return res.data;

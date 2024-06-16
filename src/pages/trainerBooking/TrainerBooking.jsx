@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import PricingCard from "../trainerDetails/PricingCard";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const TrainerBooking = () => {
   const [selected, setSelected] = useState(0);
@@ -39,6 +40,9 @@ const TrainerBooking = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FitQuest | Trainer Booking</title>
+      </Helmet>
       {isLoading ? (
         <div className="col-span-3 justify-center items-center">
           <div className="flex justify-center items-center">

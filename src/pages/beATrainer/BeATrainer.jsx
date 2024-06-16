@@ -4,13 +4,15 @@ import SelectDropdown from "./SelectDropdown";
 import TrainerSkills from "./TrainerSkills";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const BeATrainer = () => {
   const [availableDays, setAvailable] = useState([]);
   const [experties, setExperties] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const { user, loader } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   let days = [];
   let expertiesData = [];
@@ -51,7 +53,7 @@ const BeATrainer = () => {
 
     // console.log(trainer);
 
-    axiosPublic.post("/appliedTrainer", trainer).then((res) => {
+    axiosSecure.post("/appliedTrainer", trainer).then((res) => {
       // console.log(res.data);
       if (res.data.acknowledged === true) {
         Swal.fire({
@@ -92,6 +94,9 @@ const BeATrainer = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FitQuest | Be A Trainer</title>
+      </Helmet>
       {loader ? (
         <div className="flex justify-center items-center">
           <span className="loading loading-dots loading-lg"></span>

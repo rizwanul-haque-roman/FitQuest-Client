@@ -9,6 +9,7 @@ import CheckoutForm from "./CheckoutForm";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const Payment = () => {
   const axiosSecure = useAxiosSecure();
@@ -48,14 +49,12 @@ const Payment = () => {
     };
   }
 
-  //   const handleConfirm = () => {
-  //     console.log(paymentInfo);
-  //   };
-
-  //   TODO: add publishable key
   const stripePromise = loadStripe(import.meta.env.VITE_stripe_pk);
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FitQuest | Payment</title>
+      </Helmet>
       {loadingTrainer || loadingPlan || loader ? (
         <div className="col-span-3 justify-center items-center">
           <div className="flex justify-center items-center">

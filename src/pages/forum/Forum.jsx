@@ -3,6 +3,7 @@ import banner from "../../assets/forumBanner.png";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
+import { Helmet } from "react-helmet-async";
 
 const Forum = () => {
   const axiosPublic = useAxiosPublic();
@@ -56,6 +57,9 @@ const Forum = () => {
 
   return (
     <div className="pt-28">
+      <Helmet>
+        <title>FitQuest | Forum</title>
+      </Helmet>
       <div className="w-11/12 lg:container mx-auto ">
         <div className="border border-clr-main overflow-hidden lg:h-[40vh] rounded-2xl">
           <img className="w-full" src={banner} alt="" />
