@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { AuthContext } from "../../../../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const { isLoading, data: userData } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/userData?email=${user.email}`);
+      const res = await axiosSecure.get(`/userData?email=${user.email}`);
       return res.data;
     },
   });
@@ -31,7 +31,7 @@ const Profile = () => {
       profilePicture: profilePicture,
     };
 
-    axiosPublic
+    axiosSecure
       .patch("/userUpdate", updateUserData)
       .then((res) => console.log(res.data))
       .catch((error) => console.log(error));

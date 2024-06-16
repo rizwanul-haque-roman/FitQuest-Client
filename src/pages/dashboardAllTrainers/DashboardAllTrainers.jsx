@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const DashboardAllTrainers = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const {
     refetch,
@@ -12,14 +12,14 @@ const DashboardAllTrainers = () => {
   } = useQuery({
     queryKey: ["trainersDashboard"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/dashboard/trainers`);
+      const res = await axiosSecure.get(`/dashboard/trainers`);
       return res.data;
     },
   });
 
   const handleDelete = async (id, email) => {
     console.log(id);
-    const res = await axiosPublic.patch(
+    const res = await axiosSecure.patch(
       `/trainerToMember?id=${id}&email=${email}`
     );
     console.log(res.data);

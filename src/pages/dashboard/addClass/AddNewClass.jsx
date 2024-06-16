@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AddNewClass = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,7 +18,7 @@ const AddNewClass = () => {
     };
     // console.log(classData);
 
-    axiosPublic
+    axiosSecure
       .post("/classes", classData)
       .then((res) => {
         console.log(res.data);

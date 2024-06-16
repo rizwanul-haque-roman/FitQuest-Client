@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
 import bg from "../../assets/paymentBg.jpg";
@@ -8,8 +7,11 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Payment = () => {
+  const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const planJSON = localStorage.getItem("plan");
   const plan = JSON.parse(planJSON);
@@ -27,7 +29,7 @@ const Payment = () => {
   const { isLoading: loadingPlan, data: planData } = useQuery({
     queryKey: ["pricing"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/pricing/${plan.planID}`);
+      const res = await axiosSecure.get(`/pricing/${plan.planID}`);
       return res.data;
     },
   });

@@ -25,6 +25,9 @@ import PrivateRoute from "./private/Private";
 import Profile from "./pages/dashboard/memberRoutes/profile/Profile";
 import BookedTrainer from "./pages/dashboard/memberRoutes/bookedTrainer/BookedTrainer";
 import ActivityLog from "./pages/dashboard/memberRoutes/activityLog/ActivityLog";
+import AdminRoute from "./private/AdminRoute";
+import TrainerRoute from "./private/TrainerRoute";
+import CommonRoute from "./private/CommonRoute";
 
 const router = createBrowserRouter([
   {
@@ -99,39 +102,75 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/adminHome",
-        element: <Balance />,
+        element: (
+          <AdminRoute>
+            <Balance />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/subscriber",
-        element: <AllNewsletterSub />,
+        element: (
+          <AdminRoute>
+            <AllNewsletterSub />,
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/trainers",
-        element: <DashboardAllTrainers />,
+        element: (
+          <AdminRoute>
+            <DashboardAllTrainers />,
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/appliedtrainers",
-        element: <AppliedTrainers />,
+        element: (
+          <AdminRoute>
+            <AppliedTrainers />,
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/applicant/:id",
-        element: <ApplicantsDetails />,
+        element: (
+          <AdminRoute>
+            <ApplicantsDetails />,
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/addClass",
-        element: <AddNewClass />,
+        element: (
+          <AdminRoute>
+            <AddNewClass />,
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manageSlots",
-        element: <ManageSlots />,
+        element: (
+          <TrainerRoute>
+            <ManageSlots />,
+          </TrainerRoute>
+        ),
       },
       {
         path: "/dashboard/addNewSlot",
-        element: <AddNewSlot />,
+        element: (
+          <TrainerRoute>
+            <AddNewSlot />,
+          </TrainerRoute>
+        ),
       },
       {
         path: "/dashboard/createForum",
-        element: <AddForum />,
+        element: (
+          <CommonRoute>
+            <AddForum />,
+          </CommonRoute>
+        ),
       },
       {
         path: "/dashboard/profile",

@@ -1,20 +1,20 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../auth/AuthProvider";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import SelectDropdown from "../../../beATrainer/SelectDropdown";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const AddNewSlot = () => {
   const { user } = useContext(AuthContext);
   const [availableDays, setAvailableDays] = useState([]);
   const [classes, setClasses] = useState([]);
 
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { isLoading, data: trainer } = useQuery({
     queryKey: ["trainer"],
     queryFn: async () => {
-      const res = await axiosPublic.get(
+      const res = await axiosSecure.get(
         `/trainerDashboard?email=${user.email}`
       );
       return res.data;
@@ -72,7 +72,7 @@ const AddNewSlot = () => {
 
     console.log(updatedTrainerInfo);
 
-    axiosPublic
+    axiosSecure
       .patch(`/updateSlot?email=${user.email}`, updatedTrainerInfo)
       .then((res) => {
         console.log(res.data);

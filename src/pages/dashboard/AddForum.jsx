@@ -1,17 +1,17 @@
 import { useContext } from "react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddForum = () => {
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const { isLoading, data: userData } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/userData?email=${user.email}`);
+      const res = await axiosSecure.get(`/userData?email=${user.email}`);
       return res.data;
     },
   });
@@ -63,7 +63,7 @@ const AddForum = () => {
 
     console.log(postData);
 
-    axiosPublic
+    axiosSecure
       .post("/forumPost", postData)
       .then((res) => {
         console.log(res.data);

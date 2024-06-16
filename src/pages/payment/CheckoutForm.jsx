@@ -1,19 +1,18 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CheckoutForm = ({ paymentInfo, setSuccess }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  //TODO: have to use axiosSecure
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     const fetchClientSecret = async () => {
-      const res = await axiosPublic.post("/create-payment-intent", {
+      const res = await axiosSecure.post("/create-payment-intent", {
         price: paymentInfo.price,
       });
       setClientSecret(res.data.clientSecret);
@@ -22,7 +21,7 @@ const CheckoutForm = ({ paymentInfo, setSuccess }) => {
     if (paymentInfo.price) {
       fetchClientSecret();
     }
-  }, [paymentInfo.price, axiosPublic]);
+  }, [paymentInfo.price, axiosSecure]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,7 +68,7 @@ const CheckoutForm = ({ paymentInfo, setSuccess }) => {
       });
     } else {
       console.log(paymentIntent);
-      axiosPublic
+      axiosSecure
         .post("/payments", { ...paymentInfo, trxnId: paymentIntent.id })
         .then((res) => console.log(res.data));
 

@@ -8,8 +8,10 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
 import StarRating from "./StarRating";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const BookedTrainer = () => {
+  const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const [trainerId, setTrainerId] = useState("");
   const [rating, setRating] = useState(0);
@@ -17,7 +19,7 @@ const BookedTrainer = () => {
   const { isLoading, data: bookedTrainer } = useQuery({
     queryKey: ["Id"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/bookedTrainer?email=${user.email}`);
+      const res = await axiosSecure.get(`/bookedTrainer?email=${user.email}`);
       return res.data;
     },
   });

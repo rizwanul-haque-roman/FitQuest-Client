@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import PricingCard from "../trainerDetails/PricingCard";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const TrainerBooking = () => {
   const [selected, setSelected] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     const idx = localStorage.getItem("slot");
@@ -26,7 +28,7 @@ const TrainerBooking = () => {
   const { isLoading: planLoading, data: plans } = useQuery({
     queryKey: ["plans"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/pricing");
+      const res = await axiosSecure.get("/pricing");
       return res.data;
     },
   });

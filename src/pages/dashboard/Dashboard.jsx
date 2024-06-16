@@ -7,7 +7,7 @@ import { IoDocuments } from "react-icons/io5";
 import { RiPlayListAddLine } from "react-icons/ri";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -16,9 +16,10 @@ const Dashboard = () => {
   const [trainer, setTrainer] = useState(false);
   const [member, setMember] = useState(false);
   const { user, loader } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
-  axiosPublic.get(`/userData?email=${user.email}`).then((res) => {
+  axiosSecure.get(`/userData?email=${user.email}`).then((res) => {
+    console.log(res.data[0].role);
     if (res.data[0].role === "admin") {
       setAdmin(true);
     } else if (res.data[0].role === "trainer") {

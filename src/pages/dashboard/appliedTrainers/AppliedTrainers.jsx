@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AppliedTrainers = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const { isLoading, data: appliedTrainers } = useQuery({
     queryKey: ["appliedTrainers"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/appliedTrainersDashboard`);
+      const res = await axiosSecure.get(`/appliedTrainersDashboard`);
       return res.data;
     },
   });
