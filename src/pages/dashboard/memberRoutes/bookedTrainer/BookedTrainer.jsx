@@ -228,7 +228,7 @@ const BookedTrainer = () => {
                             <textarea
                               className="textarea textarea-bordered h-24"
                               name="feedback"
-                              placeholder="Write why you want to reject this appicant's application"
+                              placeholder="Type here..."
                               required
                             ></textarea>
                           </label>

@@ -17,7 +17,7 @@ const ClassCard = ({ classData }) => {
           {classData.totalBookings}
         </p>
         <p className="font-bold">Trainers who take this class:</p>
-        <div className="flex gap-5">
+        <div className="flex gap-5 flex-wrap">
           {classData?.trainers?.map((trainer, idx) => (
             <Link key={idx} to={`/trainer/${trainer._id}`}>
               <div className="avatar">
