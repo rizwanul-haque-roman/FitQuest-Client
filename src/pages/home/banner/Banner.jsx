@@ -8,7 +8,7 @@ const Banner = () => {
       className="h-screen bg-cover bg-no-repeat bg-center bg-fixed"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <div className="h-screen bg-[#000000f3] bg-cover bg-no-repeat bg-center">
+      <div className="h-screen bg-[#000000c6] bg-cover bg-no-repeat bg-center">
         <div className="container mx-auto flex justify-between items-end">
           <div className="w-1/2 h-screen flex flex-col justify-center">
             <h2 className="text-6xl font-bold">

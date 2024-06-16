@@ -255,9 +255,9 @@ const ApplicantsDetails = () => {
                   </form>
                 </div>
               </div>
-              {/* <form method="dialog" className="modal-backdrop">
+              <form method="dialog" className="modal-backdrop">
                 <button>close</button>
-              </form> */}
+              </form>
             </dialog>
           </div>
         </div>

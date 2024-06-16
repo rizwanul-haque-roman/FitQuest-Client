@@ -37,6 +37,7 @@ const Payment = () => {
   if (!loadingPlan && planData) {
     paymentInfo = {
       trainer: trainer?.fullName,
+      trainerId: plan.trainerId,
       slot: bookedSlot,
       package: planData?.title,
       price: planData?.price,
