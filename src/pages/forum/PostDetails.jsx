@@ -1,35 +1,60 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { BiSolidUpvote } from "react-icons/bi";
 import { BiSolidDownvote } from "react-icons/bi";
 import { BiUpvote } from "react-icons/bi";
 import { BiDownvote } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const PostDetails = () => {
+  const { user } = useContext(AuthContext);
   const [clickedUp, setClickedUp] = useState(false);
   const [clickedDn, setClickedDn] = useState(false);
-  let [vote, setVote] = useState(0);
+  const [initialVote, setInitialVote] = useState(0);
+  let [upvote, setUpvote] = useState(null);
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
 
   const { isLoading, data: post } = useQuery({
-    queryKey: ["totalPosts"],
+    queryKey: ["post"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/post/${id}`);
+      console.log("inside useQuery:", res.data);
       return res.data;
     },
   });
 
+  console.log("Post:", post);
+  console.log(`initial vote ${initialVote} upvote ${upvote}`);
+
   useEffect(() => {
-    setVote(post?.likes);
+    setUpvote(post?.likes);
+    setInitialVote(post?.likes);
   }, [post]);
 
+  useEffect(() => {
+    if (upvote !== null) {
+      axiosSecure
+        .patch(`/upvote?postId=${id}`, { like: upvote })
+        .then((res) => console.log(res.data))
+        .catch((error) => console.log(error.message));
+    }
+  }, [upvote]);
+
   const handleUp = () => {
+    if (!user) {
+      navigate("/login");
+    }
     setClickedUp(true);
-    if (vote < post?.likes + 1) setVote(vote + 1);
+    if (upvote < initialVote + 1) {
+      setUpvote(upvote + 1);
+      // update();
+    }
 
     if (clickedDn) {
       setClickedDn(false);
@@ -37,14 +62,22 @@ const PostDetails = () => {
   };
 
   const handleDn = () => {
-    if (vote > post?.likes) {
+    if (upvote > initialVote) {
       setClickedDn(!clickedDn);
-      setVote(vote - 1);
+      setUpvote(upvote - 1);
+      // update();
     }
     if (clickedUp) {
       setClickedUp(false);
     }
   };
+
+  // const update = () => {
+  //   axiosSecure
+  //     .patch(`/upvote?postId=${id}`, { like: upvote })
+  //     .then((res) => console.log(res.data))
+  //     .catch((error) => console.log(error.message));
+  // };
 
   console.log(post);
   return (
@@ -94,7 +127,7 @@ const PostDetails = () => {
                   ) : (
                     <BiUpvote className="text-2xl" />
                   )}{" "}
-                  Upvote : {vote}
+                  Upvote : {upvote}
                 </button>
                 <button
                   className="btn join-item bg-clr-main"
