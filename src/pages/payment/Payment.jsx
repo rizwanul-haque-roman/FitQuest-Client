@@ -78,7 +78,7 @@ const Payment = () => {
                 alt=""
               />
             </div>
-            <div className="lg:w-1/2 flex flex-col gap-4 z-30 relative">
+            <div className="lg:w-1/2 text-xl flex flex-col gap-4 z-30 relative">
               <div className="lg:flex justify-between">
                 <p>Trainer: </p>
                 <p>{trainer?.fullName}</p>
