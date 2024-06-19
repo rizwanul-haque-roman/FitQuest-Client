@@ -42,16 +42,17 @@ const AddNewSlot = () => {
     { value: "Kickboxing", label: "Kickboxing" },
   ];
 
-  const selectedOptions = trainer?.availableDays?.map((day) =>
-    daysOption.find((option) => option.value === day)
-  );
+  const selectedOptions = trainer?.availableDays?.map((day) => ({
+    value: day,
+    label: daysOption.find((option) => option.value === day)?.label || day,
+  }));
+
+  console.log("selected:", selectedOptions);
 
   let classlist = [];
   let days = [];
   classlist = classes?.map((cls) => cls.value);
   days = availableDays?.map((day) => day.value);
-
-  days;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -59,7 +60,6 @@ const AddNewSlot = () => {
     const slot = form.slot.value;
     const slotTime = form.slotTime.value;
 
-    availableDays;
     const updatedTrainerInfo = {
       days: days,
       slotsAvailable: [
@@ -68,8 +68,6 @@ const AddNewSlot = () => {
       ],
       classes: classlist,
     };
-
-    updatedTrainerInfo;
 
     axiosSecure
       .patch(`/updateSlot?email=${user.email}`, updatedTrainerInfo)
@@ -194,13 +192,11 @@ const AddNewSlot = () => {
                     Available Days
                   </span>
                 </div>
-                {!isLoading && (
-                  <SelectDropdown
-                    options={daysOption}
-                    setValue={setAvailableDays}
-                    defaultValue={selectedOptions}
-                  />
-                )}
+                <SelectDropdown
+                  options={daysOption}
+                  setValue={setAvailableDays}
+                  defaultValue={selectedOptions}
+                />
               </label>
               <label className="form-control w-full mt-6">
                 <div className="label">
@@ -208,11 +204,13 @@ const AddNewSlot = () => {
                     Classes
                   </span>
                 </div>
-                <SelectDropdown
-                  options={classesOptions}
-                  setValue={setClasses}
-                  placeholder={"Select Classes from below"}
-                />
+                {!isLoading && (
+                  <SelectDropdown
+                    options={classesOptions}
+                    setValue={setClasses}
+                    placeholder={"Select Classes from below"}
+                  />
+                )}
               </label>
             </div>
             <div className="lg:flex gap-6">
@@ -225,6 +223,7 @@ const AddNewSlot = () => {
                   placeholder="Ex. Sat"
                   name="slot"
                   className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
                 />
               </label>
               <label className="form-control w-full mt-6">
@@ -238,6 +237,7 @@ const AddNewSlot = () => {
                   placeholder="Ex. 7:00 AM - 8:00 AM"
                   name="slotTime"
                   className="outline-none bg-transparent w-full py-4 pl-1 border-b-2 border-clr-main"
+                  required
                 />
               </label>
             </div>
@@ -252,3 +252,7 @@ const AddNewSlot = () => {
 };
 
 export default AddNewSlot;
+
+/**
+ * {"_id":{"$oid":"66692d0fa1b4952446b758e9"},"fullName":"Levi Ackerman","email":"levi@surveycorps.com","profileImage":"https://i.pinimg.com/originals/4f/7e/21/4f7e21ff3635087cfa44c4cb52f27bb3.jpg","age":"30","skills":["cardio","flexibility","strength_training"],"availableDays":["Sun","Mon","Fri"],"availableTime":"6:00 AM - 6:00 PM","yearsOfExperience":"17","role":"trainer","bio":"I am Levi Ackerman, Captain of the Survey Corps, known for my unparalleled combat skills and unwavering dedication to protecting humanity from the Titans.","areasOfExpertise":["Martial Arts","Stretch and Flex","Kickboxing","Core Strength","Cardio Blast"],"status":"approved","slotsAvailable":[{"day":"Mon","time":"12:00 PM - 2:00 PM"},{"day":"Fri","time":"9:00 PM - 8:00 PM"},{"day":"Sun","time":"9:00 PM - 8:00 PM"}],"classes":["Cardio Blast","Martial Arts","Bodyweight Training","Powerlifting"]}
+ */

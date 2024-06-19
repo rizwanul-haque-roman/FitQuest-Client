@@ -11,9 +11,9 @@ const SelectDropdown = ({ options, setValue, placeholder, defaultValue }) => {
       components={animatedComponents}
       isMulti
       options={options}
-      placeholder={placeholder}
       onChange={setValue}
       defaultValue={defaultValue}
+      placeholder={placeholder}
     />
   );
 };
