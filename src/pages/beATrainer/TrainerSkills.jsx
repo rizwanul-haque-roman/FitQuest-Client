@@ -25,7 +25,7 @@ const TrainerSkills = ({ selectedSkills, setSelectedSkills }) => {
       <h3 className="text-lg font-semibold mb-3">
         Select Your Skills (At least 3)
       </h3>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-6">
         {skills.map((skill) => (
           <div key={skill.value}>
             <label>

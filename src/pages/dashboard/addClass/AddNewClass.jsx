@@ -16,17 +16,17 @@ const AddNewClass = () => {
       description: description,
       totalBookings: 0,
     };
-    // console.log(classData);
+    // (classData);
 
     axiosSecure
       .post("/classes", classData)
       .then((res) => {
-        console.log(res.data);
+        res.data;
         if (res.data.acknowledged) {
           Swal.fire("Class Added Successfully");
         }
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => error.message);
   };
 
   return (
@@ -39,7 +39,7 @@ const AddNewClass = () => {
         </div>
         <div>
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-center items-center gap-6 w-1/2 mx-auto">
+            <div className="lg:flex justify-center items-center gap-6 lg:w-1/2 mx-auto">
               <label className="form-control w-full">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">
@@ -68,7 +68,7 @@ const AddNewClass = () => {
               </label>
             </div>
             <div className="text-center mt-6">
-              <label className="form-control w-1/2 mx-auto">
+              <label className="form-control lg:w-1/2 mx-auto">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">
                     Class Description
@@ -89,11 +89,3 @@ const AddNewClass = () => {
 };
 
 export default AddNewClass;
-
-/**
- * {
-  "className": "Yoga Basics",
-  "image": "https://i.ibb.co/0h6nD8W/yoga.jpg",
-  "description": "A beginner-friendly yoga class focusing on basic poses and breathing techniques.",
-}
- */

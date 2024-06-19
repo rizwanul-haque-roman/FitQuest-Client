@@ -18,27 +18,39 @@ const ActivityLog = () => {
     },
   });
 
-  !isLoading && console.log(applicationStatus[0]);
+  !isLoading && ("status:", applicationStatus[0]);
   return (
-    <div>
-      <h1 className="text-5xl font-bold text-clr-main">Activity Log</h1>
-      <div className="flex gap-3 items-center my-6 text-xl font-medium">
-        <p>Application Status: {!isLoading && applicationStatus[0].status}</p>
-        <button onClick={() => document.getElementById("feedback").showModal()}>
-          <FaEye />
-        </button>
-        <dialog id="feedback" className="modal">
-          <div className="modal-box">
-            <p className="py-4">
-              {!isLoading && applicationStatus[0].feedback}
-            </p>
+    <>
+      {applicationStatus[0] === undefined ? (
+        <p>Not applied for trainer yet</p>
+      ) : (
+        <>
+          <div>
+            <h1 className="text-5xl font-bold text-clr-main">Activity Log</h1>
+            <div className="flex gap-3 items-center my-6 text-xl font-medium">
+              <p>
+                Application Status: {!isLoading && applicationStatus[0]?.status}
+              </p>
+              <button
+                onClick={() => document.getElementById("feedback").showModal()}
+              >
+                <FaEye />
+              </button>
+              <dialog id="feedback" className="modal">
+                <div className="modal-box">
+                  <p className="py-4">
+                    {!isLoading && applicationStatus[0]?.feedback}
+                  </p>
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
+            </div>
           </div>
-          <form method="dialog" className="modal-backdrop">
-            <button>close</button>
-          </form>
-        </dialog>
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 

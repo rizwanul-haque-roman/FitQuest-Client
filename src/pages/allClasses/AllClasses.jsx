@@ -54,7 +54,7 @@ const AllClasses = () => {
   const dataPerPage = 9;
   let totalPages = Math.ceil(count / dataPerPage);
 
-  console.log("classes:", classes, currentPage);
+  "classes:", classes, currentPage;
 
   const pages = [...Array(totalPages).keys()];
 
@@ -78,9 +78,9 @@ const AllClasses = () => {
         <title>FitQuest | All Classes</title>
       </Helmet>
       <div className="w-11/12 lg:container mx-auto">
-        <div className="my-6 flex items-center justify-between gap-6">
+        <div className="my-6 lg:flex items-center justify-between gap-6">
           <h1 className="text-5xl font-bold text-clr-main">All Classes</h1>
-          <div>
+          <div className="my-6">
             <form onSubmit={handleSearch} action="" className=" join">
               <label className="input input-bordered flex items-center gap-2 join-item">
                 <input
@@ -107,7 +107,7 @@ const AllClasses = () => {
           </div>
         </div>
         <div className="flex flex-col justify-between min-h-screen">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-6">
             {isLoading ? (
               <div className="col-span-3 justify-center items-center">
                 <div className="flex justify-center items-center">

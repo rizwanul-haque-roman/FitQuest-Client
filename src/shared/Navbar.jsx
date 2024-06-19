@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {})
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
   const handleDopdown = () => {
@@ -116,7 +116,7 @@ const Navbar = () => {
             )}
           </div>
           <Link to={"/"}>
-            <p className="text-5xl font-bold">
+            <p className="text-3xl lg:text-5xl font-bold">
               Fit<span className=" text-clr-main">Quest</span>
             </p>
           </Link>
@@ -169,13 +169,6 @@ const Navbar = () => {
                   </li>
                   <li>
                     <p>Email: {user?.email}</p>
-                  </li>
-                  <Link to={"/updateProfile"}>
-                    <button className="w-full my-3 btn btn-sm font-semibold border-none">
-                      Update Profile
-                    </button>
-                  </Link>
-                  <li>
                     <button
                       onClick={handleLogOut}
                       className="btn btn-sm font-semibold border-none"

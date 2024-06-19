@@ -56,7 +56,7 @@ const TrainerBooking = () => {
               Trainer Booking
             </h1>
           </div>
-          <div className="flex justify-center items-center gap-12">
+          <div className="lg:flex justify-center items-center gap-12">
             <div className="w-1/6 mt-6">
               <img
                 className="rounded-full border-2 border-clr-main"
@@ -85,7 +85,7 @@ const TrainerBooking = () => {
                 <p className="text-xl font-semibold text-clr-main underline my-3">
                   Selected slot
                 </p>
-                <div className="flex gap-6">
+                <div className="flex flex-wrap gap-6">
                   {trainer?.slotsAvailable.map((slot, idx) => (
                     <div key={idx}>
                       <button
@@ -101,7 +101,7 @@ const TrainerBooking = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="lg:flex justify-center items-center">
             {!planLoading &&
               plans.map((plan, idx) => (
                 <PricingCard

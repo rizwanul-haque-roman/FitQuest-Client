@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const AddNewSlot = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loader } = useContext(AuthContext);
   const [availableDays, setAvailableDays] = useState([]);
   const [classes, setClasses] = useState([]);
 
@@ -42,8 +42,7 @@ const AddNewSlot = () => {
     { value: "Kickboxing", label: "Kickboxing" },
   ];
 
-  // Map trainer's available days to the corresponding options
-  const selectedOptions = trainer?.availableDays.map((day) =>
+  const selectedOptions = trainer?.availableDays?.map((day) =>
     daysOption.find((option) => option.value === day)
   );
 
@@ -52,7 +51,7 @@ const AddNewSlot = () => {
   classlist = classes?.map((cls) => cls.value);
   days = availableDays?.map((day) => day.value);
 
-  console.log(days);
+  days;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,7 +59,7 @@ const AddNewSlot = () => {
     const slot = form.slot.value;
     const slotTime = form.slotTime.value;
 
-    console.log(availableDays);
+    availableDays;
     const updatedTrainerInfo = {
       days: days,
       slotsAvailable: [
@@ -70,12 +69,12 @@ const AddNewSlot = () => {
       classes: classlist,
     };
 
-    console.log(updatedTrainerInfo);
+    updatedTrainerInfo;
 
     axiosSecure
       .patch(`/updateSlot?email=${user.email}`, updatedTrainerInfo)
       .then((res) => {
-        console.log(res.data);
+        res.data;
         if (res.data.acknowledged === true) {
           Swal.fire("Information Updated Successfully");
         }
@@ -92,7 +91,7 @@ const AddNewSlot = () => {
       {!isLoading && (
         <div>
           <form onSubmit={handleSubmit} className="w-full mb-12">
-            <div className="flex gap-6">
+            <div className="lg:flex gap-6">
               <label className="form-control w-full">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">Name</span>
@@ -157,7 +156,7 @@ const AddNewSlot = () => {
                 required
               />
             </label>
-            <div className="flex gap-6">
+            <div className="lg:flex gap-6">
               <label className="form-control w-full mt-6">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">
@@ -188,7 +187,7 @@ const AddNewSlot = () => {
                 />
               </label>
             </div>
-            <div className="flex gap-6 items-center mt-6">
+            <div className="lg:flex gap-6 items-center mt-6">
               <label className="form-control w-full mt-6">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">
@@ -216,7 +215,7 @@ const AddNewSlot = () => {
                 />
               </label>
             </div>
-            <div className="flex gap-6">
+            <div className="lg:flex gap-6">
               <label className="form-control w-full mt-6">
                 <div className="label">
                   <span className="label-text text-lg font-semibold">Slot</span>

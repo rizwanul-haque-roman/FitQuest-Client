@@ -18,11 +18,11 @@ const DashboardAllTrainers = () => {
   });
 
   const handleDelete = async (id, email) => {
-    console.log(id);
+    id;
     const res = await axiosSecure.patch(
       `/trainerToMember?id=${id}&email=${email}`
     );
-    console.log(res.data);
+    res.data;
 
     if (res?.data?.result?.modifiedCount === 1) {
       Swal.fire("Trainer deleted successfully");
@@ -30,7 +30,7 @@ const DashboardAllTrainers = () => {
     }
   };
 
-  console.log(trainers);
+  trainers;
   return (
     <div>
       <div className="w-11/12 lg:container mx-auto ">

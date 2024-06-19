@@ -16,7 +16,7 @@ const AddForum = () => {
     },
   });
 
-  //   console.log(userData[0].role);
+  //   (userData[0].role);
 
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -28,9 +28,9 @@ const AddForum = () => {
 
   const dateTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 
-  //   console.log(dateTimeString);
+  //   (dateTimeString);
 
-  //   console.log(user.photoURL);
+  //   (user.photoURL);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -61,17 +61,17 @@ const AddForum = () => {
       views: 0,
     };
 
-    console.log(postData);
+    postData;
 
     axiosSecure
       .post("/forumPost", postData)
       .then((res) => {
-        console.log(res.data);
+        res.data;
         if (res?.data?.acknowledged) {
           Swal.fire("Forum Post added");
         }
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => error.message);
   };
 
   return (
@@ -82,8 +82,8 @@ const AddForum = () => {
         </h1>
         <div>
           <form onSubmit={handleSubmit}>
-            <div className="flex gap-6">
-              <label className="form-control w-full max-w-xs">
+            <div className="lg:flex lg:gap-6">
+              <label className="form-control w-full lg:max-w-xs">
                 <div className="label">
                   <span className="label-text text-xl">Post Title</span>
                 </div>
@@ -91,10 +91,10 @@ const AddForum = () => {
                   type="text"
                   placeholder="Add Post title"
                   name="title"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full lg:max-w-xs"
                 />
               </label>
-              <label className="form-control w-full max-w-xs">
+              <label className="form-control w-full lg:max-w-xs">
                 <div className="label">
                   <span className="label-text text-xl">Post Category</span>
                 </div>
@@ -102,10 +102,10 @@ const AddForum = () => {
                   type="text"
                   name="category"
                   placeholder="Ex. Nutrition"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full lg:max-w-xs"
                 />
               </label>
-              <label className="form-control w-full max-w-xs">
+              <label className="form-control w-full lg:max-w-xs">
                 <div className="label">
                   <span className="label-text text-xl">Post Tags</span>
                 </div>
@@ -113,7 +113,7 @@ const AddForum = () => {
                   type="text"
                   name="tags"
                   placeholder="Ex. nutrition, musclegain, bodymass"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full lg:max-w-xs"
                 />
               </label>
             </div>
@@ -149,27 +149,3 @@ const AddForum = () => {
 };
 
 export default AddForum;
-
-/**
- * {
-  "title": "Nutrition Tips for Muscle Gain",
-  "author": {
-    "username": "Emily Johnson",
-    "profilePicture": "https://i.ibb.co/TqKbgzM/Emily-Johnson.jpg",
-    "role": "Trainer"
-  },
-  "dateTime": "2024-06-06T10:00:00Z",
-  "content": {
-    "text": "Gaining muscle mass requires a balanced approach to nutrition. Prioritize protein intake, aiming for about 1.6 to 2.2 grams of protein per kilogram of body weight daily, from sources like lean meats, eggs, dairy, and plant-based proteins. Carbohydrates are also crucial for fueling workouts and recovery, so include complex carbs like whole grains, fruits, and vegetables in your diet. Healthy fats from sources like avocados, nuts, and olive oil support hormone production and overall health. Stay hydrated and consider nutrient timing, such as consuming protein-rich snacks post-workout to enhance muscle repair and growth. A well-rounded diet tailored to your specific needs and goals is essential for optimal results.",
-    "media": "https://i.ibb.co/51SBDbC/nutrition-Tips.png"
-  },
-  "category": "Nutrition",
-  "tags": [
-    "nutrition",
-    "muscle gain",
-    "diet tips"
-  ],
-  "likes": 0,
-  "views": 0
-}
- */

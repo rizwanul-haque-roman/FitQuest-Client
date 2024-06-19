@@ -42,8 +42,10 @@ const TrainerDetails = () => {
             className="bg-cover bg-no-repeat bg-center h-[50vh] rounded-2xl flex justify-end items-center"
             style={{ backgroundImage: `url(${ctaBanner})` }}
           >
-            <div>
-              <h2 className="text-5xl font-bold mb-3">Become A Trainer</h2>
+            <div className="p-3">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-3">
+                Become A Trainer
+              </h2>
               <p className="text-xl w-3/4 mb-3">
                 If you have the skills and passion to train others, join us and
                 become a part of our team.
@@ -58,7 +60,7 @@ const TrainerDetails = () => {
               Trainer details
             </h1>
           </div>
-          <div className="grid grid-cols-2 my-12">
+          <div className="grid lg:grid-cols-2 my-12">
             <div>
               <h1 className="text-3xl font-bold underline">Trainer info</h1>
               <div>
@@ -146,7 +148,7 @@ const TrainerDetails = () => {
                   <p className="text-xl font-semibold text-clr-main underline my-3">
                     Slots info
                   </p>
-                  <div className="flex gap-6 justify-between">
+                  <div className="flex flex-wrap gap-6 justify-between">
                     {trainer?.slotsAvailable.length === 0 ? (
                       <p>No Slots Available</p>
                     ) : (

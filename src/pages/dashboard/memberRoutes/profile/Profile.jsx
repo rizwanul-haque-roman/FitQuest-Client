@@ -17,7 +17,7 @@ const Profile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("button working");
+    ("button working");
     const form = event.target;
 
     const name = form.name.value;
@@ -33,9 +33,9 @@ const Profile = () => {
 
     axiosSecure
       .patch("/userUpdate", updateUserData)
-      .then((res) => console.log(res.data))
-      .catch((error) => console.log(error));
-    console.log(updateUserData);
+      .then((res) => res.data)
+      .catch((error) => error);
+    updateUserData;
   };
 
   return (
@@ -53,7 +53,7 @@ const Profile = () => {
             <div>
               <form
                 onSubmit={handleSubmit}
-                className="flex justify-center items-center w-full gap-6"
+                className="flex flex-col-reverse lg:flex-row justify-center items-center w-full gap-6"
               >
                 <div className="w-full">
                   <label className="form-control w-full ">

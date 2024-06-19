@@ -62,7 +62,7 @@ const AllTrainers = () => {
           <h1 className="text-5xl font-bold text-clr-main">
             Meet our Trainers
           </h1>
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid lg:grid-cols-3 gap-6 mt-6">
             {isLoading ? (
               <div className="col-span-3 justify-center items-center">
                 <div className="flex justify-center items-center">

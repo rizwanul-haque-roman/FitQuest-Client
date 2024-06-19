@@ -36,7 +36,7 @@ const Forum = () => {
   const dataPerPage = 6;
   let totalPages = Math.ceil(count / dataPerPage);
 
-  console.log("Posts:", posts, currentPage);
+  "Posts:", posts, currentPage;
 
   const pages = [...Array(totalPages).keys()];
 
@@ -78,7 +78,7 @@ const Forum = () => {
           </p>
         </div>
         <div className="flex flex-col justify-between min-h-screen">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-6">
             {isLoading ? (
               <div className="col-span-3 justify-center items-center">
                 <div className="flex justify-center items-center">

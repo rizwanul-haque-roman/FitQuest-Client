@@ -25,15 +25,15 @@ const Balance = () => {
   return (
     <div>
       <div className="w-11/12 lg:container mx-auto ">
-        <div className="grid grid-cols-2">
+        <div className="grid lg:grid-cols-2">
           <div>
             <h2 className="text-5xl font-bold text-clr-main">Balance</h2>
-            <div className="py-10 my-6 border border-[#160747] rounded-xl w-1/2 text-center bg-[#1b1334]">
+            <div className="py-10 my-6 border border-[#160747] rounded-xl lg:w-1/2 text-center bg-[#1b1334]">
               <p className="text-7xl font-bold">${balance?.total}</p>
             </div>
           </div>
           <div>
-            <h2 className="text-5xl font-bold text-clr-main mb-6">
+            <h2 className="text-3xl lg:text-5xl font-bold text-clr-main mb-6">
               Subscribers VS Paid Members
             </h2>
             <PieChart />
@@ -49,7 +49,7 @@ const Balance = () => {
                 </div>
               </div>
             ) : (
-              //   subscribers.map((subscriber) => console.log(subscriber))
+              //   subscribers.map((subscriber) => (subscriber))
               <div className="overflow-y-auto h-[80vh]">
                 <table className="table table-pin-rows table-pin-cols">
                   {/* head */}
@@ -67,11 +67,11 @@ const Balance = () => {
                     {payments.map((payment, idx) => (
                       <tr key={idx}>
                         <th>{idx + 1}</th>
-                        <td>$ {payment.price}</td>
-                        <td>{payment.memberEmail}</td>
-                        <td>{payment.trxnId}</td>
-                        <td>{payment.trainer}</td>
-                        <td>{payment.package}</td>
+                        <td>$ {payment?.price}</td>
+                        <td>{payment?.memberEmail}</td>
+                        <td>{payment?.trxnId}</td>
+                        <td>{payment?.trainer}</td>
+                        <td>{payment?.package}</td>
                       </tr>
                     ))}
                   </tbody>

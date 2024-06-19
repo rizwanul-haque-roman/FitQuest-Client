@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const TrainerRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user, loader } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
 
   const [trainer, setTrainer] = useState(false);
@@ -22,7 +22,7 @@ const TrainerRoute = ({ children }) => {
     },
   });
 
-  if (isLoading) {
+  if (isLoading || loader) {
     return <p>Loading...</p>;
   }
 
@@ -30,7 +30,7 @@ const TrainerRoute = ({ children }) => {
     return children;
   }
 
-  return <Navigate to={"/dashboard"} />;
+  // return <Navigate to={"/dashboard"} />;
 };
 
 TrainerRoute.propTypes = {

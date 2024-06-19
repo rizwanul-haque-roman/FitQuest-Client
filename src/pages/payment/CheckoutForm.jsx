@@ -42,9 +42,9 @@ const CheckoutForm = ({ paymentInfo, setSuccess }) => {
     });
 
     if (error) {
-      console.log(error);
+      error;
     } else {
-      console.log(paymentMethod);
+      paymentMethod;
     }
 
     // confirm payment
@@ -60,17 +60,17 @@ const CheckoutForm = ({ paymentInfo, setSuccess }) => {
       });
 
     if (paymentError) {
-      console.log(paymentError);
+      paymentError;
       Swal.fire({
         title: "Error!",
         text: `Your payment is unsuccessfull! ${paymentError.message}`,
         icon: "error",
       });
     } else {
-      console.log(paymentIntent);
+      paymentIntent;
       axiosSecure
         .post("/payments", { ...paymentInfo, trxnId: paymentIntent.id })
-        .then((res) => console.log(res.data));
+        .then((res) => res.data);
 
       setSuccess(true);
       Swal.fire({

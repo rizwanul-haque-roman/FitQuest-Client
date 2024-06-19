@@ -17,7 +17,7 @@ const Testimonial = () => {
     },
   });
 
-  // console.log("Testimonials:", data);
+  // ("Testimonials:", data);
 
   const settings_lg = {
     dots: true,
@@ -43,7 +43,7 @@ const Testimonial = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="bg-[#000000f3] bg-cover bg-no-repeat bg-center py-12 ">
-        <div className="container mx-auto my-8">
+        <div className="w-10/12 lg:container mx-auto my-8">
           <div>
             <h1 className="text-5xl font-bold text-clr-main">Testimonials</h1>
           </div>

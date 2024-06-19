@@ -23,7 +23,7 @@ const ManageSlots = () => {
   });
 
   const handleDelete = (id) => {
-    console.log(id);
+    id;
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -35,7 +35,7 @@ const ManageSlots = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/slotDeletion?id=${id}`).then((res) => {
-          console.log(res.data);
+          res.data;
           if (res.data.deletedCount === 1) {
             Swal.fire({
               title: "Deleted!",
@@ -49,7 +49,7 @@ const ManageSlots = () => {
     });
   };
 
-  console.log(bookings);
+  bookings;
 
   return (
     <div className="w-11/12 lg:container mx-auto ">

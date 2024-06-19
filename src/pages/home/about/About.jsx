@@ -9,8 +9,8 @@ const About = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="bg-[#000000f3] bg-cover bg-no-repeat bg-center py-12">
-        <div className="container mx-auto flex justify-between">
-          <div className="w-1/2">
+        <div className="w-11/12 lg:container mx-auto lg:flex justify-between">
+          <div className="lg:w-1/2">
             <h2 className="text-6xl font-bold text-clr-main">About Us</h2>
             <p className="mt-6 text-xl leading-10">
               At FitQuest, we&apos;re passionate about helping people achieve

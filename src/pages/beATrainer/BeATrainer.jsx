@@ -18,7 +18,7 @@ const BeATrainer = () => {
   let expertiesData = [];
   days = availableDays.map((day) => day.value);
   expertiesData = experties.map((day) => day.value);
-  //   console.log(expertiesData);
+  //   (expertiesData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,10 +51,10 @@ const BeATrainer = () => {
       classes: [],
     };
 
-    // console.log(trainer);
+    // (trainer);
 
     axiosSecure.post("/appliedTrainer", trainer).then((res) => {
-      // console.log(res.data);
+      // (res.data);
       if (res.data.acknowledged === true) {
         Swal.fire({
           title: "Success!",
@@ -89,8 +89,8 @@ const BeATrainer = () => {
     { value: "Kickboxing", label: "Kickboxing" },
   ];
 
-  //   availableDays.map((day) => console.log(day.value));
-  //   console.log(selectedSkills);
+  //   availableDays.map((day) => (day.value));
+  //   (selectedSkills);
 
   return (
     <div className="min-h-screen pt-20">
@@ -105,7 +105,7 @@ const BeATrainer = () => {
         <div className="w-11/12 lg:container mx-auto ">
           <div className="my-6">
             <h1 className="text-5xl font-bold text-clr-main">Be A Trainer</h1>
-            <p className="w-2/3">
+            <p className="lg:w-2/3">
               Unlock your potential and transform lives by becoming a trainer
               with us. Share your expertise, build your brand, and join a
               community dedicated to making a difference. Start your journey
@@ -115,7 +115,7 @@ const BeATrainer = () => {
           </div>
           <div>
             <form onSubmit={handleSubmit} className="w-full mb-12">
-              <div className="flex gap-6">
+              <div className="lg:flex gap-6">
                 <label className="form-control w-full">
                   <div className="label">
                     <span className="label-text text-lg font-semibold">
@@ -184,7 +184,7 @@ const BeATrainer = () => {
                   required
                 />
               </label>
-              <div className="flex gap-6">
+              <div className="lg:flex gap-6">
                 <label className="form-control w-full mt-6">
                   <div className="label">
                     <span className="label-text text-lg font-semibold">
@@ -215,7 +215,7 @@ const BeATrainer = () => {
                   />
                 </label>
               </div>
-              <div className="flex gap-6 items-center mt-6">
+              <div className="lg:flex gap-6 items-center mt-6">
                 <label className="form-control w-full mt-6">
                   <div className="label">
                     <span className="label-text text-lg font-semibold">

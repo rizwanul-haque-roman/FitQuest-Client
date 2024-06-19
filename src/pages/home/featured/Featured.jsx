@@ -13,10 +13,10 @@ const Featured = () => {
     },
   });
 
-  console.log("featured:", data);
+  "featured:", data;
 
   return (
-    <div className="container mx-auto my-24">
+    <div className="w-11/12 lg:container mx-auto my-12 lg:my-24">
       <div className="my-6">
         <h1 className="text-5xl font-bold text-clr-main">Featured Classes</h1>
         <p className="mt-4">
@@ -30,7 +30,7 @@ const Featured = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       ) : (
-        <div className=" grid grid-cols-3 gap-6">
+        <div className=" grid grid-cols-1 lg:grid-cols-3 gap-6">
           {data.map((item) => (
             <ClassCard key={item._id} classData={item} />
           ))}

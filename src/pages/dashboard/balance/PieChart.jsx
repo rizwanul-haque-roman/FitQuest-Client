@@ -19,7 +19,6 @@ const PieChart = () => {
 
   const options = {
     backgroundColor: "#1D232A",
-    // title: "Subscribers VS Paid Members",
     titleTextStyle: {
       color: "#fff",
     },

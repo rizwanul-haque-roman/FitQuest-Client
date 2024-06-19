@@ -19,8 +19,9 @@ const Dashboard = () => {
   const { user, loader } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   axiosSecure.get(`/userData?email=${user.email}`).then((res) => {
-    console.log(res.data[0].role);
     if (res.data[0].role === "admin") {
       setAdmin(true);
     } else if (res.data[0].role === "trainer") {
@@ -30,8 +31,6 @@ const Dashboard = () => {
     }
   });
 
-  // console.log(userData);
-
   return (
     <div>
       <Helmet>
@@ -40,9 +39,18 @@ const Dashboard = () => {
       {loader ? (
         <p>Loading...</p>
       ) : (
-        <div className="flex">
-          {/* dashboard side bar */}
-          <div className="w-[350px] p-10 min-h-screen bg-[#131313] ">
+        <div className="flex flex-col md:flex-row">
+          <button
+            className="md:hidden bg-clr-main text-white p-2 m-4 rounded-md"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          >
+            {isSidebarOpen ? "Close Menu" : "Open Menu"}
+          </button>
+          <div
+            className={`fixed inset-y-0 left-0 transform ${
+              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } md:relative md:translate-x-0 transition-transform duration-200 ease-in-out w-64 md:w-80 bg-[#131313] p-10 min-h-screen z-50`}
+          >
             <ul className="text-xl space-y-6 font-medium">
               <div className="flex gap-3 items-center text-clr-main">
                 <MdSpaceDashboard className="text-3xl" />
@@ -54,7 +62,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/adminHome"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -67,7 +75,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/subscriber"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -80,7 +88,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/trainers"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -93,7 +101,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/appliedtrainers"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -106,7 +114,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/addClass"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -123,7 +131,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/manageSlots"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -135,7 +143,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/addNewSlot"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -151,7 +159,7 @@ const Dashboard = () => {
                   <NavLink
                     to="/dashboard/CreateForum"
                     className={({ isActive }) =>
-                      isActive ? " text-clr-main font-bold" : ""
+                      isActive ? "text-clr-main font-bold" : ""
                     }
                   >
                     <div className="flex gap-3 items-center">Add new forum</div>
@@ -164,7 +172,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/activity"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -176,7 +184,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/profile"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">Profile</div>
@@ -186,7 +194,7 @@ const Dashboard = () => {
                     <NavLink
                       to="/dashboard/bookedTrainer"
                       className={({ isActive }) =>
-                        isActive ? " text-clr-main font-bold" : ""
+                        isActive ? "text-clr-main font-bold" : ""
                       }
                     >
                       <div className="flex gap-3 items-center">
@@ -196,7 +204,7 @@ const Dashboard = () => {
                   </li>
                 </>
               )}
-              {/* common navlink */}
+
               <div className="divider"></div>
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -209,13 +217,13 @@ const Dashboard = () => {
               </li>
             </ul>
           </div>
-          <div className="flex-1 p-8">
+          <div className="flex-1 p-6 lg:p-8 lg:mt-16">
             {path === "/dashboard" && (
               <div className="text-7xl font-bold h-[80vh] flex justify-center items-center">
                 <p>Welcome to Dashboard</p>
               </div>
             )}
-            <Outlet></Outlet>
+            <Outlet />
           </div>
         </div>
       )}

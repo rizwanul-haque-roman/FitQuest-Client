@@ -1,40 +1,35 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const CommonRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+const AdminOrTrainerRoute = ({ children }) => {
+  const { user, loader } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
 
-  const [common, setCommon] = useState(false);
-
   const { data, isLoading } = useQuery({
-    queryKey: ["admin"],
+    queryKey: ["userRole"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/userData?email=${user.email}`);
-      if (res.data[0].role === "admin" || res.data[0].role === "trainer") {
-        setCommon(true);
-      }
-      return res.data;
+      return res.data[0].role;
     },
   });
 
-  if (isLoading) {
+  if (isLoading || loader) {
     return <p>Loading...</p>;
   }
 
-  if (common) {
+  if (data === "admin" || data === "trainer") {
     return children;
   }
 
   return <Navigate to={"/dashboard"} />;
 };
 
-CommonRoute.propTypes = {
-  children: PropTypes.node,
+AdminOrTrainerRoute.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default CommonRoute;
+export default AdminOrTrainerRoute;

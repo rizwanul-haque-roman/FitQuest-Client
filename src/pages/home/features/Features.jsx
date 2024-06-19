@@ -7,7 +7,7 @@ import f6 from "../../../assets/yoga.png";
 
 const Features = () => {
   return (
-    <div className="container mx-auto my-24">
+    <div className="w-11/12 lg:container mx-auto my-12 lg:my-24">
       <div>
         <h1 className="text-5xl font-bold text-clr-main">Features</h1>
         <p className="mt-4">
@@ -16,7 +16,7 @@ const Features = () => {
           provide.
         </p>
         <div className="mt-12">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-6">
             <div className="border border-clr-main rounded-2xl p-6 bg-[#00000037] hover:transform hover:scale-105 hover:transition hover:duration-300 hover:ease-in-out hover:drop-shadow-xl transition duration-300 ease-out">
               <img className="w-1/4" src={f1} alt="" />
               <h3 className="text-2xl font-bold text-clr-main">

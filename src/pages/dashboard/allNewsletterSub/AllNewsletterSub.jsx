@@ -12,7 +12,7 @@ const AllNewsletterSub = () => {
     },
   });
 
-  console.log(subscribers);
+  // (subscribers);
   return (
     <div>
       <div className="w-11/12 lg:container mx-auto ">
@@ -28,10 +28,8 @@ const AllNewsletterSub = () => {
                 </div>
               </div>
             ) : (
-              //   subscribers.map((subscriber) => console.log(subscriber))
               <div className="overflow-y-auto h-[80vh]">
                 <table className="table table-pin-rows table-pin-cols">
-                  {/* head */}
                   <thead className="text-xl">
                     <tr>
                       <th>SL</th>

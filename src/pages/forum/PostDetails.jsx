@@ -8,6 +8,7 @@ import { BiUpvote } from "react-icons/bi";
 import { BiDownvote } from "react-icons/bi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../auth/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const PostDetails = () => {
   const { user } = useContext(AuthContext);
@@ -24,13 +25,13 @@ const PostDetails = () => {
     queryKey: ["post"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/post/${id}`);
-      console.log("inside useQuery:", res.data);
+      "inside useQuery:", res.data;
       return res.data;
     },
   });
 
-  console.log("Post:", post);
-  console.log(`initial vote ${initialVote} upvote ${upvote}`);
+  "Post:", post;
+  `initial vote ${initialVote} upvote ${upvote}`;
 
   useEffect(() => {
     setUpvote(post?.likes);
@@ -41,8 +42,8 @@ const PostDetails = () => {
     if (upvote !== null) {
       axiosSecure
         .patch(`/upvote?postId=${id}`, { like: upvote })
-        .then((res) => console.log(res.data))
-        .catch((error) => console.log(error.message));
+        .then((res) => res.data)
+        .catch((error) => error.message);
     }
   }, [upvote]);
 
@@ -75,13 +76,16 @@ const PostDetails = () => {
   // const update = () => {
   //   axiosSecure
   //     .patch(`/upvote?postId=${id}`, { like: upvote })
-  //     .then((res) => console.log(res.data))
-  //     .catch((error) => console.log(error.message));
+  //     .then((res) => (res.data))
+  //     .catch((error) => (error.message));
   // };
 
-  console.log(post);
+  post;
   return (
     <div className="min-h-screen pt-28">
+      <Helmet>
+        <title>FitQuest | Forum</title>
+      </Helmet>
       <div className="w-11/12 lg:container mx-auto ">
         {isLoading ? (
           <p>Loading...</p>
@@ -94,7 +98,7 @@ const PostDetails = () => {
               <img className="rounded-xl" src={post?.content?.media} alt="" />
             </div>
             <div className="flex flex-col justify-center items-center gap-6 my-12">
-              <div className="w-2/3 text-xl text-justify">
+              <div className="lg:w-2/3 text-xl text-justify">
                 <div className="flex gap-2 items-center text-xl">
                   <p>Author:</p>
                   <p className="text-clr-main">{post?.author?.username}</p>

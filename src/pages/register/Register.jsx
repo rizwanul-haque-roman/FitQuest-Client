@@ -25,10 +25,10 @@ const Register = () => {
     const email = form.email.value;
     const pass = form.pass.value;
 
-    console.log({ name, url, email, pass });
+    ({ name, url, email, pass });
     register(email, pass, name, url)
       .then((result) => {
-        console.log(result);
+        result;
         const userInfo = {
           email: email,
           name: name,
@@ -37,7 +37,7 @@ const Register = () => {
           lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          res.data;
         });
 
         navigate("/");
@@ -57,7 +57,7 @@ const Register = () => {
   const google = () => {
     googleLogin()
       .then((result) => {
-        console.log(result);
+        result;
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
@@ -66,7 +66,7 @@ const Register = () => {
           lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          res.data;
         });
         navigate("/");
         Swal.fire("Login Successful");
@@ -77,7 +77,7 @@ const Register = () => {
   const facebook = () => {
     facebookLogin()
       .then((result) => {
-        // console.log(result);
+        // (result);
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
@@ -86,7 +86,7 @@ const Register = () => {
           lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          res.data;
         });
         navigate("/");
         Swal.fire("Login Successful");

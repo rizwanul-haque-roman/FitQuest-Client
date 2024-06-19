@@ -26,7 +26,7 @@ const ApplicantsDetails = () => {
     };
 
     const res = await axiosPublic.patch(`/memberToTrainer`, promoteTrainer);
-    console.log(res.data);
+    res.data;
 
     if (res?.data?.result?.modifiedCount === 1) {
       navigate("/dashboard/appliedtrainers");
@@ -46,14 +46,14 @@ const ApplicantsDetails = () => {
     };
 
     const res = await axiosPublic.patch(`/rejection`, rejection);
-    console.log(res.data);
+    res.data;
 
     if (res?.data?.modifiedCount === 1) {
       navigate("/dashboard/appliedtrainers");
       Swal.fire("Application Rejected");
     }
 
-    // console.log(rejection);
+    // (rejection);
   };
 
   return (

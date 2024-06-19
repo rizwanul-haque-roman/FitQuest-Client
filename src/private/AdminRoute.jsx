@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { AuthContext } from "../auth/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
@@ -9,16 +9,11 @@ const AdminRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
 
-  const [admin, setAdmin] = useState(false);
-
-  const { data, isLoading } = useQuery({
+  const { data: role, isLoading } = useQuery({
     queryKey: ["admin"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/userData?email=${user.email}`);
-      if (res.data[0].role === "admin") {
-        setAdmin(true);
-      }
-      return res.data;
+      return res.data[0].role;
     },
   });
 
@@ -26,7 +21,7 @@ const AdminRoute = ({ children }) => {
     return <p>Loading...</p>;
   }
 
-  if (admin) {
+  if (role === "admin") {
     return children;
   }
 
@@ -34,7 +29,7 @@ const AdminRoute = ({ children }) => {
 };
 
 AdminRoute.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default AdminRoute;

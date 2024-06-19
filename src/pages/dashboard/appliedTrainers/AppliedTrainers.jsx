@@ -13,7 +13,7 @@ const AppliedTrainers = () => {
     },
   });
 
-  console.log(appliedTrainers);
+  appliedTrainers;
   return (
     <div>
       <div className="w-11/12 lg:container mx-auto ">

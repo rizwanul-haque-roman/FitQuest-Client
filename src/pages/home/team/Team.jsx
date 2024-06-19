@@ -21,9 +21,9 @@ const Team = () => {
         className="bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <div className="bg-[#000000f3] bg-cover bg-no-repeat bg-center py-24">
-          <div className="container mx-auto">
-            <div className="w-1/2">
+        <div className="bg-[#000000f3] bg-cover bg-no-repeat bg-center py-12 lg:py-24">
+          <div className="w-11/12 lg:container mx-auto">
+            <div className="lg:w-1/2">
               <h2 className="text-5xl font-bold text-clr-main">
                 Meet Out Team
               </h2>
@@ -34,7 +34,7 @@ const Team = () => {
                   <span className="loading loading-dots loading-lg"></span>
                 </div>
               ) : (
-                <div className="grid grid-cols-3 gap-6 w-full">
+                <div className="grid lg:grid-cols-3 gap-6 w-full">
                   {trainers.map((trainer) => (
                     <TeamCard key={trainer._id} trainer={trainer} />
                   ))}

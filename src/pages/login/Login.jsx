@@ -21,16 +21,16 @@ const Login = () => {
     const email = form.email.value;
     const pass = form.pass.value;
 
-    console.log({ email, pass });
+    ({ email, pass });
     login(email, pass)
       .then((result) => {
-        console.log(result);
+        result;
         const userInfo = {
           email: email,
           lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.patch("/users", userInfo).then((res) => {
-          console.log("Inside axios:", res.data);
+          "Inside axios:", res.data;
         });
         Swal.fire("Login Successful");
         navigate(location?.state ? location.state : "/");
@@ -41,12 +41,12 @@ const Login = () => {
   const google = () => {
     googleLogin()
       .then((result) => {
-        console.log(result);
+        result;
         const userInfo = {
           lastLogin: result.user?.metadata?.lastSignInTime,
         };
         axiosPublic.patch("/users", userInfo).then((res) => {
-          console.log("Inside axios:", res.data);
+          "Inside axios:", res.data;
         });
         navigate("/");
         Swal.fire("Login Successful");
@@ -57,7 +57,7 @@ const Login = () => {
   const facebook = () => {
     facebookLogin()
       .then((result) => {
-        console.log(result);
+        result;
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
@@ -65,7 +65,7 @@ const Login = () => {
           role: "member",
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          res.data;
         });
         navigate("/");
         Swal.fire("Login Successful");
