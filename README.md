@@ -148,7 +148,7 @@ To run the FitQuest project locally, follow these steps:
    ```
 2. **Navigate to the project directory:**
    ```sh
-   cd fitquest-client
+   cd FitQuest-Client
    ```
 3. **Install dependencies:**
    ```sh
