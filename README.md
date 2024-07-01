@@ -137,6 +137,30 @@ The Libraries and technologies that has been used in this project are:
 - [Node.js](https://nodejs.org/) - An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
 
+
+## Running the Project Locally
+
+To run the FitQuest project locally, follow these steps:
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/rizwanul-haque-roman/FitQuest-Client.git
+   ```
+2. **Navigate to the project directory:**
+   ```sh
+   cd fitquest-client
+   ```
+3. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+4. **Set up your .env file (follow .env.example):**
+ 
+5. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
 ## Developer
 
 - **Rijwanul Haque Roman** - _Computer Science Student at DIIT_
